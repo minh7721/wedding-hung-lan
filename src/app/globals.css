@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -10,6 +9,8 @@
   --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --font-heading: var(--font-sans);
+  --font-viaoda: "Viaoda Libre", "EB Garamond", serif;
+  --font-inter: var(--font-inter), "Inter", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,38 +50,39 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Wedding theme - warm beige/cream palette with burgundy accents */
+  --background: oklch(0.95 0.01 70);  /* Soft warm beige background #F5F0E8 */
+  --foreground: oklch(0.25 0.02 30);  /* Deep brown text for good contrast */
+  --card: oklch(0.96 0.008 65);  /* Slightly lighter cream for cards #F7F3EB */
+  --card-foreground: oklch(0.25 0.02 30);
+  --popover: oklch(0.96 0.008 65);
+  --popover-foreground: oklch(0.25 0.02 30);
+  --primary: oklch(0.30 0.08 20);  /* Deep burgundy #511419 */
+  --primary-foreground: oklch(0.94 0.01 70);  /* Cream text on burgundy */
+  --secondary: oklch(0.93 0.012 65);  /* Light beige */
+  --secondary-foreground: oklch(0.30 0.08 20);
+  --muted: oklch(0.88 0.015 60);  /* Muted tan */
+  --muted-foreground: oklch(0.50 0.03 45);  /* Medium brown */
+  --accent: oklch(0.93 0.012 65);
+  --accent-foreground: oklch(0.30 0.08 20);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.85 0.015 60);  /* Warm border color */
+  --input: oklch(0.85 0.015 60);
+  --ring: oklch(0.30 0.08 20);  /* Burgundy focus ring */
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.96 0.008 65);
+  --sidebar-foreground: oklch(0.25 0.02 30);
+  --sidebar-primary: oklch(0.30 0.08 20);
+  --sidebar-primary-foreground: oklch(0.94 0.01 70);
+  --sidebar-accent: oklch(0.93 0.012 65);
+  --sidebar-accent-foreground: oklch(0.30 0.08 20);
+  --sidebar-border: oklch(0.85 0.015 60);
+  --sidebar-ring: oklch(0.30 0.08 20);
 }
 
 .dark {
@@ -126,5 +128,11 @@
   }
   html {
     @apply font-sans;
+  }
+  .font-viaoda {
+    font-family: var(--font-viaoda);
+  }
+  .font-inter {
+    font-family: var(--font-inter);
   }
 }

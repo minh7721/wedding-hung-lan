@@ -1,0 +1,312 @@
+{
+  "title": "Mẫu Thiệp Minimalism Đỏ Đậm - Thiệp Cưới Tối Giản Sang Trọng",
+  "url": "https://chungdoi.com/vi/mau-thiep/minimalism-do-dam/demo",
+  "scrollHeight": 6251,
+  "sections": [
+    {
+      "index": 0,
+      "tag": "div",
+      "id": null,
+      "classes": [
+        "flex",
+        "w-full",
+        "justify-center",
+        "overflow-x-clip",
+        "bg-white"
+      ],
+      "text": "SAVE THE DATE\n\nHoàng Long\n\n&\n\nBảo Ngọc\n\nTHÔNG TIN LỄ CƯỚI\nÔng Bà\nĐặng Văn Thắng\nBùi Thị Mai\nQuận 1, TP. Hồ Chí Minh\nÔng Bà\nVũ Đức Trung\nNgô Thị Hạnh\nQuận 3, TP. Hồ Chí Minh\nTRÂN TRỌNG BÁO TIN\nLỄ THÀNH",
+      "hasImages": 37,
+      "hasButtons": 28,
+      "hasForms": 6,
+      "backgroundColor": "rgb(255, 255, 255)",
+      "height": 6250.1875,
+      "position": 0
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "id": null,
+      "classes": [
+        "relative",
+        "z-10",
+        "mx-auto",
+        "w-[88%]",
+        "max-w-[420px]",
+        "md:max-w-[560px]"
+      ],
+      "text": "THÔNG TIN LỄ CƯỚI\nÔng Bà\nĐặng Văn Thắng\nBùi Thị Mai\nQuận 1, TP. Hồ Chí Minh\nÔng Bà\nVũ Đức Trung\nNgô Thị Hạnh\nQuận 3, TP. Hồ Chí Minh\nTRÂN TRỌNG BÁO TIN\nLỄ THÀNH HÔN CỦA CON CHÚNG TÔI\nĐặng Hoàng Long\nT",
+      "hasImages": 2,
+      "hasButtons": 0,
+      "hasForms": 0,
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "height": 847.5,
+      "position": 958.3125
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "id": null,
+      "classes": [
+        "relative",
+        "z-10",
+        "mx-auto",
+        "mb-4",
+        "w-[88%]",
+        "max-w-[420px]",
+        "md:max-w-[560px]"
+      ],
+      "text": "THÔNG TIN TIỆC CƯỚI\nTIỆC CƯỚI SẼ DIỄN RA VÀO LÚC:\n18:00\nTHỨ BẢY\n03\nTHÁNG 01\n2026\n(TỨC NGÀY 15 THÁNG 11 NĂM ẤT TỴ)\nĐÓN KHÁCH\n17:30\nKHAI TIỆC\n18:00\nTháng 1 / 2026\nT2\nT3\nT4\nT5\nT6\nT7\nCN\n1\n2\n3\n4\n5\n6\n7\n8\n9\n",
+      "hasImages": 2,
+      "hasButtons": 1,
+      "hasForms": 0,
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "height": 874.5,
+      "position": 2475.8125
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "id": null,
+      "classes": [
+        "relative",
+        "z-10",
+        "flex",
+        "w-full",
+        "flex-col",
+        "items-center",
+        "px-6",
+        "pb-8",
+        "pt-8"
+      ],
+      "text": "TIỆC CƯỚI SẼ TỔ CHỨC TẠI\nTrung Tâm Hội Nghị White Palace, 194 Hoàng Văn Thụ, Phường 9, Quận Phú Nhuận, TP. Hồ Chí Minh\nChỉ đường",
+      "hasImages": 0,
+      "hasButtons": 0,
+      "hasForms": 0,
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "height": 593.5,
+      "position": 3366.3125
+    },
+    {
+      "index": 4,
+      "tag": "section",
+      "id": null,
+      "classes": [
+        "relative",
+        "z-10",
+        "mx-auto",
+        "my-4",
+        "w-[88%]",
+        "max-w-[420px]",
+        "md:max-w-[560px]"
+      ],
+      "text": "LỊCH TRÌNH NGÀY CƯỚI\n17:00\nĐón khách\n18:00\nKhai tiệc\n18:30\nNghi thức cưới\n19:00\nCắt bánh & nâng ly\n20:30\nKết thúc tiệc",
+      "hasImages": 5,
+      "hasButtons": 0,
+      "hasForms": 0,
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "height": 404.875,
+      "position": 4197.8125
+    },
+    {
+      "index": 5,
+      "tag": "section",
+      "id": null,
+      "classes": [
+        "relative",
+        "z-10",
+        "px-6",
+        "pb-8",
+        "pt-[74px]",
+        "md:pt-[120px]",
+        "[&_textarea]:h-[56px]",
+        "md:[&_textarea]:h-[110px]",
+        "[&_form]:max-w-[280px]",
+        "md:[&_form]:max-w-[380px]",
+        "[&>div:last-child]:mt-[max(60px,calc(109.3cqw-333px))]",
+        "md:[&>div:last-child]:mt-[110px]"
+      ],
+      "text": "SỔ LƯU BÚT\n🪄\nGỬI LỜI CHÚC\nDuy Khang\n12:30:49 26/7/2026\n\nChúc mừng ngày vui của hai bạn, trăm năm hạnh phúc bền lâu!\n\nLan Chi\n12:30:49 26/7/2026\n\nĐẹp đôi quá! Chúc hai bạn sống bên nhau đầu bạc răng l",
+      "hasImages": 0,
+      "hasButtons": 2,
+      "hasForms": 3,
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "height": 1068,
+      "position": 4618.6875
+    }
+  ],
+  "allHeadings": [
+    {
+      "tag": "h2",
+      "text": "THÔNG TIN LỄ CƯỚI",
+      "classes": [
+        "uppercase",
+        "text-center",
+        "relative",
+        "z-10"
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "Đặng Hoàng Long",
+      "classes": [
+        "w-[80%]",
+        "min-h-[80px]",
+        "flex",
+        "items-center",
+        "justify-center",
+        "leading-[52px]",
+        "md:leading-[60px]",
+        "whitespace-nowrap"
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "Vũ Bảo Ngọc",
+      "classes": [
+        "w-[80%]",
+        "min-h-[80px]",
+        "flex",
+        "items-center",
+        "justify-center",
+        "leading-[52px]",
+        "md:leading-[60px]",
+        "whitespace-nowrap"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "ALBUM ẢNH",
+      "classes": [
+        "uppercase",
+        "text-center",
+        "relative",
+        "z-10"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "THÔNG TIN TIỆC CƯỚI",
+      "classes": [
+        "uppercase",
+        "text-center",
+        "relative",
+        "z-10"
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "TIỆC CƯỚI SẼ DIỄN RA VÀO LÚC:",
+      "classes": [
+        "font-normal",
+        "uppercase",
+        "text-[20px]",
+        "md:text-[26px]",
+        "flex",
+        "flex-col",
+        "items-center"
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "TIỆC CƯỚI SẼ TỔ CHỨC TẠI",
+      "classes": [
+        "uppercase",
+        "text-center"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "DRESS CODE",
+      "classes": [
+        "uppercase",
+        "font-normal",
+        "text-[20px]",
+        "md:text-[26px]",
+        "text-center"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "LỊCH TRÌNH NGÀY CƯỚI",
+      "classes": [
+        "uppercase",
+        "text-center",
+        "text-[20px]"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "SỔ LƯU BÚT",
+      "classes": [
+        "uppercase",
+        "font-bold",
+        "text-[20px]",
+        "md:text-[24px]",
+        "relative",
+        "-translate-y-[-16px]"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "HỘP QUÀ MỪNG",
+      "classes": [
+        "mb-4",
+        "uppercase",
+        "text-[20px]",
+        "\"Times",
+        "New",
+        "Roman\",",
+        "serif",
+        "flex",
+        "flex-col",
+        "items-center"
+      ]
+    },
+    {
+      "tag": "h2",
+      "text": "",
+      "classes": [
+        "uppercase",
+        "text-[20px]",
+        "\"Times",
+        "New",
+        "Roman\",",
+        "serif"
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "",
+      "classes": [
+        "mb-2",
+        "text-xs",
+        "min-h-[2rem]",
+        "flex",
+        "items-start",
+        "justify-center",
+        "font-medium",
+        "text-center",
+        "line-clamp-2"
+      ]
+    },
+    {
+      "tag": "h3",
+      "text": "",
+      "classes": [
+        "mb-2",
+        "text-xs",
+        "min-h-[2rem]",
+        "flex",
+        "items-start",
+        "justify-center",
+        "font-medium",
+        "text-center",
+        "line-clamp-2"
+      ]
+    }
+  ],
+  "imageCount": 39,
+  "videoCount": 0,
+  "buttonCount": 30,
+  "formCount": 4
+}
