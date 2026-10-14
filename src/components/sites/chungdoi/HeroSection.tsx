@@ -65,11 +65,11 @@ export function HeroSection({ onOpenInvitation }: HeroSectionProps) {
         <div className="relative z-10 text-center">
           {/* Names */}
           <h1 className="font-viaoda text-[32px] leading-[38px]" style={{ color: '#511419' }}>
-            Hoàng Long
+            Minh Hùng
             <br />
             <span className="text-[20px]">&</span>
             <br />
-            Bảo Ngọc
+            Hương Lan
           </h1>
 
           {/* Decorative divider */}
@@ -81,7 +81,7 @@ export function HeroSection({ onOpenInvitation }: HeroSectionProps) {
 
           {/* Date */}
           <p className="font-inter text-sm mt-2" style={{ color: '#6b4423' }}>
-            3 tháng 1, 2026
+            25 tháng 10, 2026
           </p>
 
           {/* Invitation text */}

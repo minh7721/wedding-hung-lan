@@ -5,18 +5,18 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause } from 'lucide-react';
 
 export const photos = [
-  { id: 1, src: '/images/anh_cuoi_thao/PL_06859.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 1' },
-  { id: 2, src: '/images/anh_cuoi_thao/PL_06884.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 2' },
-  { id: 3, src: '/images/anh_cuoi_thao/PL_06945.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 3' },
-  { id: 4, src: '/images/anh_cuoi_thao/PL_06955.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 4' },
-  { id: 5, src: '/images/anh_cuoi_thao/PL_06963.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 5' },
-  { id: 6, src: '/images/anh_cuoi_thao/PL_06974.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 6' },
-  { id: 7, src: '/images/anh_cuoi_thao/PL_07029.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 7' },
-  { id: 8, src: '/images/anh_cuoi_thao/PL_07047.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 8' },
-  { id: 9, src: '/images/anh_cuoi_thao/PL_07084.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 9' },
-  { id: 10, src: '/images/anh_cuoi_thao/PL_07108.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 10' },
-  { id: 11, src: '/images/anh_cuoi_thao/PL_07131.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 11' },
-  { id: 12, src: '/images/anh_cuoi_thao/PL_07169.JPG', alt: 'Ảnh cưới Hoàng Long & Bảo Ngọc 12' },
+  { id: 1, src: '/images/anh_cuoi_thao/PL_06859.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 1' },
+  { id: 2, src: '/images/anh_cuoi_thao/PL_06884.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 2' },
+  { id: 3, src: '/images/anh_cuoi_thao/PL_06945.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 3' },
+  { id: 4, src: '/images/anh_cuoi_thao/PL_06955.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 4' },
+  { id: 5, src: '/images/anh_cuoi_thao/PL_06963.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 5' },
+  { id: 6, src: '/images/anh_cuoi_thao/PL_06974.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 6' },
+  { id: 7, src: '/images/anh_cuoi_thao/PL_07029.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 7' },
+  { id: 8, src: '/images/anh_cuoi_thao/PL_07047.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 8' },
+  { id: 9, src: '/images/anh_cuoi_thao/PL_07084.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 9' },
+  { id: 10, src: '/images/anh_cuoi_thao/PL_07108.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 10' },
+  { id: 11, src: '/images/anh_cuoi_thao/PL_07131.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 11' },
+  { id: 12, src: '/images/anh_cuoi_thao/PL_07169.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 12' },
 ];
 
 const AUTOPLAY_DURATION = 4500; // ms per slide

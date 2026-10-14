@@ -45,7 +45,7 @@ export function ReceptionDetailsCard() {
           <div className="my-4">
             <div className="flex items-center justify-center gap-3 mb-2">
               <span className="text-4xl md:text-5xl font-bold leading-none" style={{ fontFamily: 'Times New Roman, serif' }}>
-                18:00
+                17:30
               </span>
             </div>
             <p className="text-[10px] uppercase tracking-wider opacity-70 mb-3">Thứ Bảy</p>
@@ -53,15 +53,15 @@ export function ReceptionDetailsCard() {
 
           {/* Large date display */}
           <div className="flex items-end justify-center gap-3 my-4">
-            <span className="text-5xl md:text-6xl font-bold leading-none">03</span>
+            <span className="text-5xl md:text-6xl font-bold leading-none">24</span>
             <div className="text-left pb-1">
-              <p className="text-xs md:text-sm uppercase font-semibold leading-tight">Tháng 01</p>
+              <p className="text-xs md:text-sm uppercase font-semibold leading-tight">Tháng 10</p>
               <p className="text-xs md:text-sm uppercase font-semibold leading-tight">2026</p>
             </div>
           </div>
 
           <p className="text-[10px] uppercase tracking-wider opacity-60 my-3">
-            (Tức ngày 15 tháng 11 năm Ất Tỵ)
+            (Tức ngày 15 tháng 09 năm Bính Ngọ)
           </p>
 
           {/* Decorative divider */}
@@ -76,13 +76,13 @@ export function ReceptionDetailsCard() {
             <div className="rounded-lg p-3 border border-[#ECE4D8]/20">
               <p className="text-[10px] uppercase mb-1.5 opacity-70 tracking-wide">Đón Khách</p>
               <p className="text-xl font-semibold" style={{ fontFamily: 'Times New Roman, serif' }}>
-                17:30
+                17:00
               </p>
             </div>
             <div className="rounded-lg p-3 border border-[#ECE4D8]/20">
               <p className="text-[10px] uppercase mb-1.5 opacity-70 tracking-wide">Khai Tiệc</p>
               <p className="text-xl font-semibold" style={{ fontFamily: 'Times New Roman, serif' }}>
-                18:00
+                17:30
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export function ReceptionDetailsCard() {
           <div className="mt-6 p-5 rounded-2xl" style={{ backgroundColor: '#ECE4D8' }}>
             <div className="flex items-center justify-center mb-3">
               <span className="text-sm font-serif italic" style={{ color: '#511419' }}>
-                Tháng 1 / 2026
+                Tháng 10 / 2026
               </span>
             </div>
 
@@ -104,53 +104,53 @@ export function ReceptionDetailsCard() {
                 </div>
               ))}
 
-              {/* Week 1 */}
+              {/* Week 1 - October 2026 starts on Thursday */}
+              <div />
+              <div />
               <div className="py-1.5 opacity-30">1</div>
               <div className="py-1.5 opacity-30">2</div>
-              <div className="relative py-1.5">
-                <div className="relative inline-flex items-center justify-center w-7 h-7 rounded-full" style={{ backgroundColor: '#511419' }}>
-                  <span className="relative z-10 text-white font-semibold text-xs">3</span>
-                  <Heart className="absolute -top-1 -right-1 w-3.5 h-3.5 text-[#FF006E]" fill="#FF006E" />
-                </div>
-              </div>
+              <div className="py-1.5 opacity-30">3</div>
               <div className="py-1.5 opacity-30">4</div>
               <div className="py-1.5 opacity-30">5</div>
-              <div className="py-1.5 opacity-30">6</div>
-              <div className="py-1.5 opacity-30">7</div>
 
               {/* Week 2 */}
+              <div className="py-1.5 opacity-30">6</div>
+              <div className="py-1.5 opacity-30">7</div>
               <div className="py-1.5 opacity-30">8</div>
               <div className="py-1.5 opacity-30">9</div>
               <div className="py-1.5 opacity-30">10</div>
               <div className="py-1.5 opacity-30">11</div>
               <div className="py-1.5 opacity-30">12</div>
-              <div className="py-1.5 opacity-30">13</div>
-              <div className="py-1.5 opacity-30">14</div>
 
               {/* Week 3 */}
+              <div className="py-1.5 opacity-30">13</div>
+              <div className="py-1.5 opacity-30">14</div>
               <div className="py-1.5 opacity-30">15</div>
               <div className="py-1.5 opacity-30">16</div>
               <div className="py-1.5 opacity-30">17</div>
               <div className="py-1.5 opacity-30">18</div>
               <div className="py-1.5 opacity-30">19</div>
-              <div className="py-1.5 opacity-30">20</div>
-              <div className="py-1.5 opacity-30">21</div>
 
               {/* Week 4 */}
+              <div className="py-1.5 opacity-30">20</div>
+              <div className="py-1.5 opacity-30">21</div>
               <div className="py-1.5 opacity-30">22</div>
               <div className="py-1.5 opacity-30">23</div>
-              <div className="py-1.5 opacity-30">24</div>
+              <div className="relative py-1.5">
+                <div className="relative inline-flex items-center justify-center w-7 h-7 rounded-full" style={{ backgroundColor: '#511419' }}>
+                  <span className="relative z-10 text-white font-semibold text-xs">24</span>
+                  <Heart className="absolute -top-1 -right-1 w-3.5 h-3.5 text-[#FF006E]" fill="#FF006E" />
+                </div>
+              </div>
               <div className="py-1.5 opacity-30">25</div>
               <div className="py-1.5 opacity-30">26</div>
-              <div className="py-1.5 opacity-30">27</div>
-              <div className="py-1.5 opacity-30">28</div>
 
               {/* Week 5 */}
+              <div className="py-1.5 opacity-30">27</div>
+              <div className="py-1.5 opacity-30">28</div>
               <div className="py-1.5 opacity-30">29</div>
               <div className="py-1.5 opacity-30">30</div>
               <div className="py-1.5 opacity-30">31</div>
-              <div />
-              <div />
               <div />
               <div />
             </div>

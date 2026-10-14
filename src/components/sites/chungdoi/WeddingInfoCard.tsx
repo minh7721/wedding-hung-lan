@@ -53,24 +53,22 @@ export function WeddingInfoCard() {
             <div className="text-center">
               <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Ông Bà</p>
               <p className="font-bold text-xs md:text-sm mb-0.5" style={{ fontFamily: 'Times New Roman, serif' }}>
-                Đặng Văn Thắng
+                Phan Minh Đức
               </p>
               <p className="font-bold text-xs md:text-sm mb-1.5" style={{ fontFamily: 'Times New Roman, serif' }}>
-                Bùi Thị Mai
+                Phan Thị Hạnh
               </p>
-              <p className="text-[9px] opacity-60 leading-relaxed">Quận 1</p>
             </div>
 
             {/* Bride's family */}
             <div className="text-center">
               <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Ông Bà</p>
               <p className="font-bold text-xs md:text-sm mb-0.5" style={{ fontFamily: 'Times New Roman, serif' }}>
-                Vũ Đức Trung
+                Nguyễn Văn Hồng
               </p>
               <p className="font-bold text-xs md:text-sm mb-1.5" style={{ fontFamily: 'Times New Roman, serif' }}>
-                Ngô Thị Hạnh
+                Trần Thị Nhã
               </p>
-              <p className="text-[9px] opacity-60 leading-relaxed">Quận 3</p>
             </div>
           </div>
 
@@ -92,11 +90,11 @@ export function WeddingInfoCard() {
 
             {/* Groom name */}
             <h3 className="font-viaoda text-3xl md:text-4xl my-3 leading-tight" style={{ lineHeight: '1.2' }}>
-              Đặng Hoàng Long
+              Phan Minh Hùng
             </h3>
 
             <p className="text-[10px] uppercase tracking-widest opacity-70 my-2" style={{ letterSpacing: '0.15em' }}>
-              Trưởng Nam
+              &nbsp;
             </p>
 
             {/* Ampersand with decorative lines */}
@@ -108,11 +106,11 @@ export function WeddingInfoCard() {
 
             {/* Bride name */}
             <h3 className="font-viaoda text-3xl md:text-4xl my-3 leading-tight" style={{ lineHeight: '1.2' }}>
-              Vũ Bảo Ngọc
+              Nguyễn Hương Lan
             </h3>
 
             <p className="text-[10px] uppercase tracking-widest opacity-70 my-2" style={{ letterSpacing: '0.15em' }}>
-              Út Nữ
+              &nbsp;
             </p>
           </div>
 
@@ -134,20 +132,20 @@ export function WeddingInfoCard() {
 
             {/* Time and date */}
             <div className="mb-4">
-              <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Vào lúc 09:00</p>
-              <p className="text-[10px] uppercase opacity-70 mb-3 tracking-wider">Thứ Bảy</p>
+              <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Vào lúc 13:30</p>
+              <p className="text-[10px] uppercase opacity-70 mb-3 tracking-wider">Chủ Nhật</p>
 
               {/* Large date */}
               <div className="flex items-end justify-center gap-3 mb-2">
-                <span className="text-5xl md:text-6xl font-bold leading-none">03</span>
+                <span className="text-5xl md:text-6xl font-bold leading-none">25</span>
                 <div className="text-left pb-1">
-                  <p className="text-xs md:text-sm uppercase font-semibold leading-tight">Tháng 01</p>
+                  <p className="text-xs md:text-sm uppercase font-semibold leading-tight">Tháng 10</p>
                   <p className="text-xs md:text-sm uppercase font-semibold leading-tight">2026</p>
                 </div>
               </div>
 
               <p className="text-[10px] opacity-60 mt-2">
-                (Tức ngày 15 tháng 11 năm Ất Tỵ)
+                (Tức ngày 16 tháng 09 năm Bính Ngọ)
               </p>
             </div>
           </div>

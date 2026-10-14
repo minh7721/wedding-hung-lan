@@ -35,7 +35,7 @@ export function GiftBoxSection() {
 
               <div className="text-center mb-4">
                 <p className="text-base font-bold mb-1" style={{ color: '#3D2820', fontFamily: 'Times New Roman, serif' }}>
-                  Đặng Hoàng Long
+                  Phan Minh Hùng
                 </p>
                 <p className="text-xs" style={{ color: '#8B6F47' }}>
                   Vietcombank
@@ -70,7 +70,7 @@ export function GiftBoxSection() {
 
               <div className="text-center mb-4">
                 <p className="text-base font-bold mb-1" style={{ color: '#3D2820', fontFamily: 'Times New Roman, serif' }}>
-                  Vũ Bảo Ngọc
+                  Nguyễn Hương Lan
                 </p>
                 <p className="text-xs" style={{ color: '#8B6F47' }}>
                   Techcombank

@@ -179,7 +179,7 @@ export function SaveTheDateSection({ initialPhoto }: SaveTheDateSectionProps) {
             color: 'rgb(81, 20, 25)',
           }}
         >
-          Hoàng Long
+          Minh Hùng
         </p>
 
         {/* Watermark Script Ampersand */}
@@ -201,7 +201,7 @@ export function SaveTheDateSection({ initialPhoto }: SaveTheDateSectionProps) {
             color: 'rgb(81, 20, 25)',
           }}
         >
-          Bảo Ngọc
+          Hương Lan
         </p>
       </div>
 
