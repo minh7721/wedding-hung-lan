@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { HeroSection } from '@/components/sites/chungdoi/HeroSection';
 import { StorySection } from '@/components/sites/chungdoi/StorySection';
 import { EventSection } from '@/components/sites/chungdoi/EventSection';
@@ -6,13 +9,23 @@ import { RSVPSection } from '@/components/sites/chungdoi/RSVPSection';
 import { MobileNav } from '@/components/sites/chungdoi/MobileNav';
 
 export default function ChungDoiWeddingPage() {
+  const [isInvitationOpen, setIsInvitationOpen] = useState(false);
+
+  const handleOpenInvitation = () => {
+    setIsInvitationOpen(true);
+  };
+
   return (
     <main className="min-h-screen bg-white">
-      <HeroSection />
-      <StorySection />
-      <EventSection />
-      <GallerySection />
-      <RSVPSection />
+      <HeroSection onOpenInvitation={handleOpenInvitation} />
+      {isInvitationOpen && (
+        <>
+          <StorySection />
+          <EventSection />
+          <GallerySection />
+          <RSVPSection />
+        </>
+      )}
       <MobileNav />
 
       {/* Footer */}
