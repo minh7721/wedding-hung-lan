@@ -114,7 +114,7 @@ export default function Home() {
           }
           to {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
           }
         }
         .animate-fade-in {
