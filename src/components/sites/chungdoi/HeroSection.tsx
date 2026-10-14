@@ -1,133 +1,222 @@
 'use client';
 
+import Image from 'next/image';
 import { Heart } from 'lucide-react';
 
 interface HeroSectionProps {
+  groomName?: string;
+  brideName?: string;
+  date?: string;
+  invitationText?: string;
   onOpenInvitation?: () => void;
 }
 
-export function HeroSection({ onOpenInvitation }: HeroSectionProps) {
+// Subtle romantic floating hearts in the background
+const BACKGROUND_HEARTS = [
+  { top: '12%', left: '10%', size: 10, color: '#d48888', opacity: 0.25, duration: 7, delay: 0, rotate: -15 },
+  { top: '24%', left: '31%', size: 8, color: '#a84c56', opacity: 0.22, duration: 8.5, delay: 1.2, rotate: 10 },
+  { top: '38%', left: '26%', size: 12, color: '#6e1d27', opacity: 0.35, duration: 9, delay: 2.5, rotate: -12 },
+  { top: '53%', left: '9%', size: 11, color: '#d9a39f', opacity: 0.3, duration: 9, delay: 3, rotate: -25 },
+  { top: '64%', left: '19%', size: 9, color: '#e8bebe', opacity: 0.28, duration: 7.8, delay: 1.8, rotate: -8 },
+  { top: '69%', left: '17%', size: 13, color: '#f3d3cf', opacity: 0.35, duration: 7.5, delay: 0.5, rotate: 15 },
+  { top: '92%', left: '26%', size: 10, color: '#caa27e', opacity: 0.32, duration: 9.5, delay: 4, rotate: 20 },
+  { top: '17%', right: '29%', size: 9, color: '#caa27e', opacity: 0.28, duration: 8.2, delay: 1, rotate: 30 },
+  { top: '42%', right: '17%', size: 12, color: '#caa27e', opacity: 0.38, duration: 7.2, delay: 2.2, rotate: -20 },
+  { top: '58%', right: '30%', size: 10, color: '#caa27e', opacity: 0.3, duration: 8.6, delay: 3.5, rotate: 12 },
+];
 
+export function HeroSection({
+  groomName = 'Minh Hùng',
+  brideName = 'Hương Lan',
+  date = '25 tháng 10, 2026',
+  invitationText = 'Thân Mời',
+  onOpenInvitation,
+}: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-12 overflow-hidden" style={{ backgroundColor: '#511419' }}>
-      {/* Floating hearts background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[10%] left-[15%] w-3 h-3 text-[#DED9D7]/30">
-          <Heart fill="currentColor" className="w-full h-full animate-float" />
-        </div>
-        <div className="absolute top-[70%] right-[20%] w-4 h-4 text-[#DED9D7]/20">
-          <Heart fill="currentColor" className="w-full h-full animate-float-delayed" />
-        </div>
-        <div className="absolute bottom-[20%] left-[25%] w-3 h-3 text-[#DED9D7]/25">
-          <Heart fill="currentColor" className="w-full h-full" />
-        </div>
-        <div className="absolute top-[40%] right-[10%] w-3 h-3 text-[#DED9D7]/20">
-          <Heart fill="currentColor" className="w-full h-full animate-float" />
-        </div>
+    <section
+      className="relative min-h-screen w-full flex items-center justify-center px-4 sm:px-6 py-10 overflow-hidden select-none"
+      style={{
+        background: 'radial-gradient(ellipse at 50% 50%, #460f19 0%, #340a12 55%, #220408 100%)',
+      }}
+    >
+      {/* Floating subtle romantic hearts in background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {BACKGROUND_HEARTS.map((h, i) => (
+          <div
+            key={i}
+            className="absolute animate-gentle-float"
+            style={{
+              top: h.top,
+              left: h.left,
+              right: h.right,
+              width: `${h.size}px`,
+              height: `${h.size}px`,
+              color: h.color,
+              opacity: h.opacity,
+              transform: `rotate(${h.rotate}deg)`,
+              animationDuration: `${h.duration}s`,
+              animationDelay: `${h.delay}s`,
+            }}
+          >
+            <Heart fill="currentColor" stroke="none" className="w-full h-full" />
+          </div>
+        ))}
       </div>
 
       {/* Main invitation card */}
-      <div className="relative w-full max-w-[342px] rounded-3xl p-8 pt-12 pb-10" style={{ backgroundColor: '#ECE4D8' }}>
-        {/* Floral decoration - top left corner */}
-        <div className="absolute top-4 left-4 w-20 h-20">
-          <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-            {/* Burgundy roses and branches */}
-            <circle cx="20" cy="20" r="12" fill="#511419" opacity="0.9" />
-            <circle cx="18" cy="22" r="8" fill="#6B2429" opacity="0.8" />
-            <circle cx="30" cy="32" r="10" fill="#511419" opacity="0.85" />
-            <path d="M35 35 L50 45 L55 50" stroke="#8B7355" strokeWidth="1.5" fill="none" />
-            <path d="M20 20 L30 25 L35 30" stroke="#8B7355" strokeWidth="1.5" fill="none" />
-            <ellipse cx="52" cy="48" rx="3" ry="5" fill="#A89968" opacity="0.7" />
-            <ellipse cx="56" cy="52" rx="2.5" ry="4" fill="#C4B998" opacity="0.6" />
-          </svg>
+      <div
+        className="relative z-10 w-full max-w-[390px] sm:max-w-[580px] md:max-w-[620px] rounded-2xl sm:rounded-3xl overflow-hidden animate-card-fade-in"
+        style={{
+          background: 'linear-gradient(175deg, #FCF9F3 0%, #FAF5EE 55%, #F4ECE0 100%)',
+          boxShadow:
+            '0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 12px 28px -8px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.7)',
+        }}
+      >
+        {/* Left floral bouquet decoration */}
+        <div className="absolute -left-5 sm:-left-3 md:left-0 top-1/2 -translate-y-1/2 w-28 sm:w-36 md:w-44 h-[94%] sm:h-[96%] pointer-events-none select-none z-10 flex items-center">
+          <Image
+            src="/sites/chungdoi/images/flower2-decoration.webp"
+            alt="Họa tiết hoa thiệp cưới"
+            width={466}
+            height={1000}
+            priority
+            className="w-full h-full object-contain object-left drop-shadow-[2px_6px_14px_rgba(0,0,0,0.18)]"
+          />
         </div>
 
-        {/* Floral decoration - bottom right corner */}
-        <div className="absolute bottom-4 right-4 w-20 h-20">
-          <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-            {/* Burgundy roses and branches (mirrored) */}
-            <circle cx="60" cy="60" r="12" fill="#511419" opacity="0.9" />
-            <circle cx="62" cy="58" r="8" fill="#6B2429" opacity="0.8" />
-            <circle cx="50" cy="48" r="10" fill="#511419" opacity="0.85" />
-            <path d="M45 45 L30 35 L25 30" stroke="#8B7355" strokeWidth="1.5" fill="none" />
-            <path d="M60 60 L50 55 L45 50" stroke="#8B7355" strokeWidth="1.5" fill="none" />
-            <ellipse cx="28" cy="32" rx="3" ry="5" fill="#A89968" opacity="0.7" />
-            <ellipse cx="24" cy="28" rx="2.5" ry="4" fill="#C4B998" opacity="0.6" />
-          </svg>
+        {/* Right floral bouquet decoration (mirrored) */}
+        <div className="absolute -right-5 sm:-right-3 md:right-0 top-1/2 -translate-y-1/2 w-28 sm:w-36 md:w-44 h-[94%] sm:h-[96%] pointer-events-none select-none z-10 flex items-center">
+          <Image
+            src="/sites/chungdoi/images/flower2-decoration.webp"
+            alt="Họa tiết hoa thiệp cưới"
+            width={466}
+            height={1000}
+            priority
+            className="w-full h-full object-contain object-left scale-x-[-1] drop-shadow-[-2px_6px_14px_rgba(0,0,0,0.18)]"
+          />
         </div>
 
-        {/* Heart icon circle */}
-        <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: '#511419' }}>
-          <Heart className="w-7 h-7 text-white" fill="white" />
-        </div>
-
-        {/* Card content */}
-        <div className="relative z-10 text-center">
-          {/* Names */}
-          <h1 className="font-viaoda text-[32px] leading-[38px]" style={{ color: '#511419' }}>
-            Minh Hùng
-            <br />
-            <span className="text-[20px]">&</span>
-            <br />
-            Hương Lan
-          </h1>
-
-          {/* Decorative divider */}
-          <div className="flex items-center justify-center gap-3 my-3">
-            <div className="h-px w-14" style={{ backgroundColor: '#511419', opacity: 0.3 }} />
-            <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#511419', opacity: 0.5 }} />
-            <div className="h-px w-14" style={{ backgroundColor: '#511419', opacity: 0.3 }} />
+        {/* Card inner content */}
+        <div className="relative z-20 flex flex-col items-center text-center px-6 sm:px-16 py-8 sm:py-10 md:py-12">
+          {/* Top Heart Medallion */}
+          <div
+            className="w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-[0_4px_14px_rgba(66,13,22,0.35)] ring-4 ring-[#420d16]/10 transition-transform duration-300 hover:scale-105"
+            style={{ backgroundColor: '#420d16' }}
+          >
+            <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-white" />
           </div>
 
-          {/* Date */}
-          <p className="font-inter text-sm mt-2" style={{ color: '#6b4423' }}>
-            25 tháng 10, 2026
+          {/* Couple Names */}
+          <div className="font-cormorant text-[#3e0d16] flex flex-col items-center">
+            <h1 className="text-2xl sm:text-3xl md:text-[34px] font-normal leading-tight tracking-[0.02em]">
+              {groomName}
+            </h1>
+            <span className="text-base sm:text-lg text-[#3e0d16]/75 italic my-0.5">
+              &
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-[34px] font-normal leading-tight tracking-[0.02em]">
+              {brideName}
+            </h2>
+          </div>
+
+          {/* Delicate Ornamental Botanical Flourish Divider */}
+          <div className="flex items-center justify-center my-2 sm:my-3">
+            <svg
+              width="130"
+              height="16"
+              viewBox="0 0 130 16"
+              fill="none"
+              className="text-[#3e0d16]/55"
+              aria-hidden="true"
+            >
+              {/* Left tapering horizontal rule */}
+              <path
+                d="M12 8H48"
+                stroke="currentColor"
+                strokeWidth="0.75"
+                strokeLinecap="round"
+                opacity="0.65"
+              />
+              {/* Left floral curve */}
+              <path
+                d="M48 8C52 8 54 5 57 7.5C58.5 8.8 57 10.5 54 9.5"
+                stroke="currentColor"
+                strokeWidth="0.7"
+                strokeLinecap="round"
+                fill="none"
+              />
+              {/* Central bud / heart motif */}
+              <path
+                d="M65 3.5C63.5 3.5 62 4.8 62 6.5C62 8.8 65 11 65 11C65 11 68 8.8 68 6.5C68 4.8 66.5 3.5 65 3.5Z"
+                fill="currentColor"
+              />
+              {/* Right floral curve */}
+              <path
+                d="M82 8C78 8 76 5 73 7.5C71.5 8.8 73 10.5 76 9.5"
+                stroke="currentColor"
+                strokeWidth="0.7"
+                strokeLinecap="round"
+                fill="none"
+              />
+              {/* Right tapering horizontal rule */}
+              <path
+                d="M82 8H118"
+                stroke="currentColor"
+                strokeWidth="0.75"
+                strokeLinecap="round"
+                opacity="0.65"
+              />
+            </svg>
+          </div>
+
+          {/* Wedding Date */}
+          <p className="font-cormorant text-sm sm:text-[15px] font-normal tracking-wide text-[#6b353d]">
+            {date}
           </p>
 
           {/* Invitation text */}
-          <p className="font-inter text-sm mt-4 mb-6" style={{ color: '#6b4423' }}>
-            Thân Mời
+          <p className="font-cormorant text-xs sm:text-sm font-medium tracking-[0.1em] text-[#6b353d] mt-2.5 sm:mt-3 mb-5 sm:mb-6">
+            {invitationText}
           </p>
 
           {/* Open invitation button */}
           <button
             onClick={onOpenInvitation}
-            className="px-6 py-2 rounded-full font-inter text-sm font-semibold transition-all hover:opacity-90 hover:shadow-lg"
-            style={{ backgroundColor: '#511419', color: '#ECE4D8' }}
+            className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-2 sm:py-2.5 rounded-full font-cormorant text-sm sm:text-[15px] font-medium tracking-wider text-[#FAF5EE] shadow-[0_4px_16px_rgba(66,13,22,0.38)] hover:shadow-[0_8px_24px_rgba(66,13,22,0.52)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+            style={{ backgroundColor: '#420d16' }}
+            aria-label="Mở thiệp cưới"
           >
-            Mở thiệp
+            <span className="transition-transform duration-300 group-hover:scale-105">
+              Mở thiệp
+            </span>
           </button>
         </div>
       </div>
 
-      {/* Messenger button - floating bottom right */}
-      <a
-        href="https://m.me/your-messenger-id"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center z-50 shadow-lg hover:scale-110 transition-transform"
-        style={{ backgroundColor: '#FF006E' }}
-        aria-label="Chat on Messenger"
-      >
-        <svg viewBox="0 0 24 24" fill="white" className="w-7 h-7">
-          <path d="M12,2C6.36,2 2,6.13 2,11.7C2,14.61 3.19,17.14 5.14,18.87C5.3,19 5.4,19.22 5.41,19.44L5.46,21.22C5.5,21.79 6.07,22.16 6.59,21.93L8.57,21.06C8.74,21 8.93,20.97 9.1,21C10,21.27 11,21.4 12,21.4C17.64,21.4 22,17.27 22,11.7C22,6.13 17.64,2 12,2M18,9.46L15.07,14.13C14.6,14.86 13.6,15.05 12.9,14.5L10.56,12.77C10.35,12.61 10.05,12.61 9.84,12.77L6.68,15.17C6.26,15.5 5.71,15 6,14.54L8.93,9.87C9.4,9.14 10.4,8.95 11.1,9.5L13.44,11.23C13.65,11.39 13.95,11.39 14.16,11.23L17.32,8.83C17.74,8.5 18.29,9 18,9.46Z" />
-        </svg>
-      </a>
-
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
+        @keyframes gentleFloat {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-16px) rotate(4deg);
+          }
         }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
+        @keyframes cardFadeIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.96) translateY(12px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
         }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
+        .animate-gentle-float {
+          animation: gentleFloat 8s ease-in-out infinite;
         }
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite 2s;
+        .animate-card-fade-in {
+          animation: cardFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
     </section>

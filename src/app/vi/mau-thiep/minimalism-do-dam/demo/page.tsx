@@ -17,7 +17,13 @@ export default function ChungDoiWeddingPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <HeroSection onOpenInvitation={handleOpenInvitation} />
+      <HeroSection
+        groomName="Hoàng Long"
+        brideName="Bảo Ngọc"
+        date="3 tháng 1, 2026"
+        invitationText="Thân Mời"
+        onOpenInvitation={handleOpenInvitation}
+      />
       {isInvitationOpen && (
         <>
           <StorySection />

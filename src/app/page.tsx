@@ -32,7 +32,15 @@ export default function Home() {
       }} />
 
       {/* Cover screen */}
-      {!isOpen && <HeroSection onOpenInvitation={handleOpenInvitation} />}
+      {!isOpen && (
+        <HeroSection
+          groomName="Minh Hùng"
+          brideName="Hương Lan"
+          date="25 tháng 10, 2026"
+          invitationText="Thân Mời"
+          onOpenInvitation={handleOpenInvitation}
+        />
+      )}
 
       {/* Main content - shown after opening */}
       {isOpen && (
