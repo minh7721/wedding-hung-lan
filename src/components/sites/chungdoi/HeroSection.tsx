@@ -3,7 +3,7 @@
 import { Heart } from 'lucide-react';
 
 interface HeroSectionProps {
-  onOpenInvitation: () => void;
+  onOpenInvitation?: () => void;
 }
 
 export function HeroSection({ onOpenInvitation }: HeroSectionProps) {
