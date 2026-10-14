@@ -1,22 +1,27 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { HeroSection } from '@/components/sites/chungdoi/HeroSection';
 import { SaveTheDateSection } from '@/components/sites/chungdoi/SaveTheDateSection';
 import { WeddingInfoCard } from '@/components/sites/chungdoi/WeddingInfoCard';
 import { PhotoGallerySection } from '@/components/sites/chungdoi/PhotoGallerySection';
 import { ReceptionDetailsCard } from '@/components/sites/chungdoi/ReceptionDetailsCard';
 import { VenueLocationSection } from '@/components/sites/chungdoi/VenueLocationSection';
-import { DressCodeSection } from '@/components/sites/chungdoi/DressCodeSection';
-import { TimelineSection } from '@/components/sites/chungdoi/TimelineSection';
 import { GuestbookSection } from '@/components/sites/chungdoi/GuestbookSection';
 import { GiftBoxSection } from '@/components/sites/chungdoi/GiftBoxSection';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleOpenInvitation = () => {
     setIsOpen(true);
+    // Play music when opening invitation
+    if (audioRef.current) {
+      audioRef.current.play().catch((error) => {
+        console.log('Audio playback failed:', error);
+      });
+    }
   };
 
   return (
@@ -37,12 +42,15 @@ export default function Home() {
           <PhotoGallerySection />
           <ReceptionDetailsCard />
           <VenueLocationSection />
-          <DressCodeSection />
-          <TimelineSection />
           <GuestbookSection />
           <GiftBoxSection />
         </div>
       )}
+
+      {/* Background music */}
+      <audio ref={audioRef} loop preload="auto">
+        <source src="/ido-911.mp3" type="audio/mpeg" />
+      </audio>
 
       <style jsx>{`
         @keyframes fade-in {
