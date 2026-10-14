@@ -1,8 +1,18 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause } from 'lucide-react';
+
+const emptySubscribe = () => () => {};
+function useMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
 
 export const photos = [
   { id: 1, src: '/images/anh_cuoi_thao/PL_06859.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 1' },
@@ -28,6 +38,7 @@ export function PhotoGallerySection() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const mounted = useMounted();
 
   // Dragging & Swipe state
   const [dragOffset, setDragOffset] = useState(0);
@@ -536,100 +547,106 @@ export function PhotoGallerySection() {
       </div>
 
       {/* Fullscreen Lightbox Modal */}
-      {isLightboxOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fade-in select-none"
-          onClick={closeLightbox}
-        >
-          {/* Top Bar inside Lightbox */}
+      {mounted &&
+        isLightboxOpen &&
+        createPortal(
           <div
-            className="flex items-center justify-between w-full max-w-5xl mx-auto z-20"
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Xem ảnh bộ sưu tập phóng to"
+            className="fixed inset-0 z-[99999] w-screen h-screen min-h-dvh bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fade-in select-none"
+            onClick={closeLightbox}
           >
-            <div className="text-white/80 font-serif text-sm tracking-wider">
-              Khoảnh khắc {lightboxIndex + 1} / {photos.length}
+            {/* Top Bar inside Lightbox */}
+            <div
+              className="flex items-center justify-between w-full max-w-5xl mx-auto z-20 shrink-0"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="text-white/80 font-serif text-sm tracking-wider">
+                Khoảnh khắc {lightboxIndex + 1} / {photos.length}
+              </div>
+
+              <button
+                onClick={closeLightbox}
+                className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/25 active:scale-95 text-white transition-all cursor-pointer shadow-md backdrop-blur-sm"
+                title="Đóng (Esc)"
+                aria-label="Đóng"
+              >
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
             </div>
 
-            <button
-              onClick={closeLightbox}
-              className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
-              title="Đóng (Esc)"
-              aria-label="Đóng"
+            {/* Main Photo View in Lightbox */}
+            <div
+              className="relative flex-1 w-full max-w-5xl mx-auto flex items-center justify-center min-h-0 my-2"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-          </div>
+              {/* Prev Lightbox Button */}
+              <button
+                onClick={() =>
+                  setLightboxIndex((prev) => (prev - 1 + photos.length) % photos.length)
+                }
+                className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm shadow-xl"
+                aria-label="Ảnh trước"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
 
-          {/* Main Photo View in Lightbox */}
-          <div
-            className="relative flex-1 w-full max-w-5xl mx-auto flex items-center justify-center my-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Prev Lightbox Button */}
-            <button
-              onClick={() =>
-                setLightboxIndex((prev) => (prev - 1 + photos.length) % photos.length)
-              }
-              className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
-              aria-label="Ảnh trước"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
+              {/* Next Lightbox Button */}
+              <button
+                onClick={() =>
+                  setLightboxIndex((prev) => (prev + 1) % photos.length)
+                }
+                className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm shadow-xl"
+                aria-label="Ảnh tiếp theo"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
 
-            {/* Next Lightbox Button */}
-            <button
-              onClick={() =>
-                setLightboxIndex((prev) => (prev + 1) % photos.length)
-              }
-              className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm"
-              aria-label="Ảnh tiếp theo"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-
-            {/* Lightbox Image Container */}
-            <div className="relative w-full h-[68vh] sm:h-[75vh] flex items-center justify-center">
-              <Image
-                src={photos[lightboxIndex].src}
-                alt={photos[lightboxIndex].alt}
-                fill
-                sizes="(max-width: 768px) 95vw, 1200px"
-                className="object-contain rounded-xl shadow-2xl transition-all duration-300 animate-zoom-in"
-                priority
-              />
+              {/* Lightbox Image Container */}
+              <div className="relative w-full h-[68vh] sm:h-[75vh] flex items-center justify-center">
+                <Image
+                  src={photos[lightboxIndex].src}
+                  alt={photos[lightboxIndex].alt}
+                  fill
+                  sizes="(max-width: 768px) 95vw, 1200px"
+                  className="object-contain rounded-xl shadow-2xl transition-all duration-300 animate-zoom-in"
+                  priority
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Bottom Thumbnails inside Lightbox */}
-          <div
-            className="w-full max-w-3xl mx-auto z-20 overflow-x-auto py-2 no-scrollbar"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-center gap-2">
-              {photos.map((photo, idx) => (
-                <button
-                  key={photo.id}
-                  onClick={() => setLightboxIndex(idx)}
-                  className={`relative shrink-0 w-10 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ${
-                    lightboxIndex === idx
-                      ? 'ring-2 ring-white scale-110 opacity-100'
-                      : 'opacity-40 hover:opacity-80 scale-95'
-                  }`}
-                  aria-label={`Xem ảnh ${idx + 1}`}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="48px"
-                    className="object-cover pointer-events-none"
-                  />
-                </button>
-              ))}
+            {/* Bottom Thumbnails inside Lightbox */}
+            <div
+              className="w-full max-w-3xl mx-auto z-20 shrink-0 overflow-x-auto py-2 no-scrollbar"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-center gap-2">
+                {photos.map((photo, idx) => (
+                  <button
+                    key={photo.id}
+                    onClick={() => setLightboxIndex(idx)}
+                    className={`relative shrink-0 w-10 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ${
+                      lightboxIndex === idx
+                        ? 'ring-2 ring-white scale-110 opacity-100'
+                        : 'opacity-40 hover:opacity-80 scale-95'
+                    }`}
+                    aria-label={`Xem ảnh ${idx + 1}`}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="48px"
+                      className="object-cover pointer-events-none"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar {

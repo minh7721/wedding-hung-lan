@@ -57,7 +57,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen relative" style={{ backgroundColor: '#ECE4D8' }}>
+    <div className="min-h-screen relative overflow-x-clip" style={{ backgroundColor: '#ECE4D8' }}>
       {/* Subtle background pattern */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
