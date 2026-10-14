@@ -135,4 +135,39 @@
   .font-inter {
     font-family: var(--font-inter);
   }
+  .font-cormorant {
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+  }
+  .font-nautigal {
+    font-family: "The Nautigal", "Great Vibes", cursive;
+  }
+}
+
+@keyframes drFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes envelopeSlideUp {
+  0% {
+    transform: translateY(42px) rotate(4deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) rotate(12deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sealShine {
+  0%, 100% {
+    filter: drop-shadow(0 2px 6px rgba(184, 134, 11, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.65));
+  }
 }
