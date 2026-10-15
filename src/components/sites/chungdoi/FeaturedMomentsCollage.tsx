@@ -122,7 +122,7 @@ export function FeaturedMomentsCollage({
             {/* Top Left Photo */}
             <div
               onClick={() => handleCardClick(topLeft.galleryIndex)}
-              className="group relative aspect-[3/4] sm:aspect-[4/5] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_20px_rgba(81,20,25,0.12)] cursor-pointer ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 bg-[#ECE4D8]"
+              className="group relative aspect-[3/4.8] sm:aspect-[3/4.7] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_20px_rgba(81,20,25,0.12)] cursor-pointer ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 bg-[#ECE4D8]"
               title="Bấm để xem ảnh phóng to"
             >
               <Image
@@ -182,7 +182,7 @@ export function FeaturedMomentsCollage({
             {/* Middle Photo (Intimate Hand-Kissing Crop) */}
             <div
               onClick={() => handleCardClick(middle.galleryIndex)}
-              className="group relative aspect-[3/4.2] sm:aspect-[3/4] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_20px_rgba(81,20,25,0.12)] cursor-pointer ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 bg-[#ECE4D8]"
+              className="group relative aspect-[3/5.3] sm:aspect-[3/5.1] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_20px_rgba(81,20,25,0.12)] cursor-pointer ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 bg-[#ECE4D8]"
               title="Bấm để xem ảnh phóng to"
             >
               <Image
@@ -255,8 +255,8 @@ export function FeaturedMomentsCollage({
           </div>
         </div>
 
-        {/* 3. LOWER ASYMMETRIC BLOCK (2 Columns, Aligned at Bottom) */}
-        <div className="flex gap-2 sm:gap-3 md:gap-3.5 items-end mt-2.5 sm:mt-3 md:mt-3.5 relative z-10">
+        {/* 3. LOWER ASYMMETRIC BLOCK (2 Columns, Stretch Aligned) */}
+        <div className="flex gap-2 sm:gap-3 md:gap-3.5 items-stretch mt-2.5 sm:mt-3 md:mt-3.5 relative z-10">
           {/* Column 1: Prominent Couple Portrait (Tuxedo & Veil) (width: 58%) */}
           <div className="w-[58%] shrink-0">
             <div
@@ -296,9 +296,9 @@ export function FeaturedMomentsCollage({
           </div>
 
           {/* Column 2: Romantic Stamp + Red Double Happiness Backdrop (width: 41%) */}
-          <div className="w-[41%] flex flex-col justify-end shrink-0">
+          <div className="w-[41%] flex flex-col shrink-0">
             {/* Romantic Stamp Badge in Negative Space */}
-            <div className="mb-2 sm:mb-3 flex flex-col items-center justify-center text-center p-2 sm:p-2.5 rounded-xl bg-white/75 border border-[#511419]/12 backdrop-blur-xs shadow-2xs">
+            <div className="mb-2 sm:mb-3 flex flex-col items-center justify-center text-center p-2 sm:p-2.5 rounded-xl bg-white/75 border border-[#511419]/12 backdrop-blur-xs shadow-2xs shrink-0">
               <Heart className="w-3.5 h-3.5 text-[#511419] fill-[#511419]/25 mb-1" />
               <span
                 className="text-[10px] sm:text-xs font-serif italic text-[#511419]"
@@ -311,10 +311,10 @@ export function FeaturedMomentsCollage({
               </span>
             </div>
 
-            {/* Bottom Right Photo */}
+            {/* Bottom Right Photo - Extended/Lengthened to match bottom alignment */}
             <div
               onClick={() => handleCardClick(bottomRight.galleryIndex)}
-              className="group relative aspect-[4/3] sm:aspect-[1/1] w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_10px_25px_rgba(81,20,25,0.14)] cursor-pointer ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 bg-[#ECE4D8]"
+              className="group relative flex-1 min-h-0 w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_10px_25px_rgba(81,20,25,0.14)] cursor-pointer ring-1 ring-black/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 bg-[#ECE4D8]"
               title="Bấm để xem ảnh phóng to"
             >
               <Image
@@ -324,7 +324,7 @@ export function FeaturedMomentsCollage({
                 priority
                 sizes="(max-width: 640px) 160px, 320px"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                style={{ objectPosition: bottomRight.objectPosition }}
+                style={{ objectPosition: 'center 20%' }}
               />
 
               {/* Shimmer light sweep */}
