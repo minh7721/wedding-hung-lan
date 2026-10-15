@@ -109,6 +109,7 @@ export function FeaturedMomentsCollage({
               alt="LOVE Story - Minh Hùng & Hương Lan"
               fill
               priority
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 680px, 760px"
               className="object-contain object-center drop-shadow-[0_2px_4px_rgba(81,20,25,0.1)] transition-transform duration-700 hover:scale-[1.01]"
             />
           </div>
@@ -173,6 +174,7 @@ export function FeaturedMomentsCollage({
                 alt="VE Typography"
                 fill
                 priority
+                sizes="(max-width: 640px) 80px, 160px"
                 className="object-contain object-center drop-shadow-[0_2px_4px_rgba(81,20,25,0.12)]"
               />
             </div>

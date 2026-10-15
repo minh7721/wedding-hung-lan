@@ -39,7 +39,7 @@ export const photos = [
   { id: 20, src: '/images/anh_cuoi_thao/optimized/PL_07382.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Duyên dáng trăm năm' },
 ];
 
-const AUTOPLAY_DURATION = 4500; // ms per slide
+const AUTOPLAY_DURATION = 2000; // ms per slide
 
 export function PhotoGallerySection() {
   const [currentIndex, setCurrentIndex] = useState(0);
