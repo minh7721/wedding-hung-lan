@@ -8,7 +8,6 @@ import { PhotoGallerySection } from '@/components/sites/chungdoi/PhotoGallerySec
 import { ReceptionDetailsCard } from '@/components/sites/chungdoi/ReceptionDetailsCard';
 import { VenueLocationSection } from '@/components/sites/chungdoi/VenueLocationSection';
 import { GuestbookSection } from '@/components/sites/chungdoi/GuestbookSection';
-import { GiftBoxSection } from '@/components/sites/chungdoi/GiftBoxSection';
 import { RisingHearts, RisingHeartsHandle } from '@/components/sites/chungdoi/RisingHearts';
 import { FloatingMusicPlayer } from '@/components/sites/chungdoi/FloatingMusicPlayer';
 import { triggerGrandCelebration } from '@/lib/celebration';
@@ -97,7 +96,6 @@ export default function Home() {
           <ReceptionDetailsCard />
           <VenueLocationSection />
           <GuestbookSection />
-          <GiftBoxSection />
         </div>
       )}
 

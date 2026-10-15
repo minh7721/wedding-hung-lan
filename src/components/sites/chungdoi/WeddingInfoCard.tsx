@@ -97,10 +97,6 @@ export function WeddingInfoCard() {
               Phan Minh Hùng
             </h3>
 
-            <p className="text-[10px] uppercase tracking-widest opacity-70 my-1" style={{ letterSpacing: '0.15em' }}>
-              Trưởng Nam
-            </p>
-
             {/* Ampersand with delicate lines */}
             <div className="flex items-center justify-center gap-3 my-3">
               <div className="h-px w-12 bg-[#ECE4D8] opacity-20" />
@@ -113,9 +109,6 @@ export function WeddingInfoCard() {
               Nguyễn Hương Lan
             </h3>
 
-            <p className="text-[10px] uppercase tracking-widest opacity-70 my-1" style={{ letterSpacing: '0.15em' }}>
-              Út Nữ
-            </p>
           </div>
 
           {/* Decorative divider */}
