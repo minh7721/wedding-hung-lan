@@ -4,19 +4,29 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause } from 'lucide-react';
 
+import { FeaturedMomentsCollage } from './FeaturedMomentsCollage';
+
 export const photos = [
-  { id: 1, src: '/images/anh_cuoi_thao/PL_06859.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 1' },
-  { id: 2, src: '/images/anh_cuoi_thao/PL_06884.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 2' },
-  { id: 3, src: '/images/anh_cuoi_thao/PL_06945.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 3' },
-  { id: 4, src: '/images/anh_cuoi_thao/PL_06955.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 4' },
-  { id: 5, src: '/images/anh_cuoi_thao/PL_06963.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 5' },
-  { id: 6, src: '/images/anh_cuoi_thao/PL_06974.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 6' },
-  { id: 7, src: '/images/anh_cuoi_thao/PL_07029.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 7' },
-  { id: 8, src: '/images/anh_cuoi_thao/PL_07047.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 8' },
-  { id: 9, src: '/images/anh_cuoi_thao/PL_07084.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 9' },
-  { id: 10, src: '/images/anh_cuoi_thao/PL_07108.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 10' },
-  { id: 11, src: '/images/anh_cuoi_thao/PL_07131.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 11' },
-  { id: 12, src: '/images/anh_cuoi_thao/PL_07169.JPG', alt: 'Ảnh cưới Minh Hùng & Hương Lan 12' },
+  { id: 1, src: '/images/anh_cuoi_thao/optimized/PL_06859.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Váy cưới công chúa' },
+  { id: 2, src: '/images/anh_cuoi_thao/optimized/PL_06884.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Khoảnh khắc ngọt ngào' },
+  { id: 3, src: '/images/anh_cuoi_thao/optimized/PL_06945.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Bên tường hoa trắng' },
+  { id: 4, src: '/images/anh_cuoi_thao/optimized/PL_06955.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Ánh mắt yêu thương' },
+  { id: 5, src: '/images/anh_cuoi_thao/optimized/PL_06963.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ cười cô dâu rạng rỡ' },
+  { id: 6, src: '/images/anh_cuoi_thao/optimized/PL_06974.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Dịu dàng tựa vai' },
+  { id: 7, src: '/images/anh_cuoi_thao/optimized/PL_07029.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Save The Date' },
+  { id: 8, src: '/images/anh_cuoi_thao/optimized/PL_07047.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Chúc mừng hạnh phúc' },
+  { id: 9, src: '/images/anh_cuoi_thao/optimized/PL_07084.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Bàn tiệc rượu vui tươi' },
+  { id: 10, src: '/images/anh_cuoi_thao/optimized/PL_07108.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ hôn vầng trán' },
+  { id: 11, src: '/images/anh_cuoi_thao/optimized/PL_07131.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Suit trắng lịch lãm' },
+  { id: 12, src: '/images/anh_cuoi_thao/optimized/PL_07141.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Cùng bước chung đôi' },
+  { id: 13, src: '/images/anh_cuoi_thao/optimized/PL_07169.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ hôn trên tay dịu dàng' },
+  { id: 14, src: '/images/anh_cuoi_thao/optimized/PL_07175.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Hỷ sự cát tường' },
+  { id: 15, src: '/images/anh_cuoi_thao/optimized/PL_07199.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Rạng rỡ chữ Hỷ' },
+  { id: 16, src: '/images/anh_cuoi_thao/optimized/PL_07203.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Tình yêu viên mãn' },
+  { id: 17, src: '/images/anh_cuoi_thao/optimized/PL_07225.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Hướng về tương lai' },
+  { id: 18, src: '/images/anh_cuoi_thao/optimized/PL_07313.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Tuxedo & Khăn voan' },
+  { id: 19, src: '/images/anh_cuoi_thao/optimized/PL_07347.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Áo dài truyền thống' },
+  { id: 20, src: '/images/anh_cuoi_thao/optimized/PL_07382.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Duyên dáng trăm năm' },
 ];
 
 const AUTOPLAY_DURATION = 4500; // ms per slide
@@ -331,6 +341,24 @@ export function PhotoGallerySection() {
         </h2>
         <p className="mt-2.5 text-xs sm:text-sm text-[#6b4423]/75 italic max-w-sm mx-auto">
           Từng nụ cười, từng ánh mắt đong đầy yêu thương
+        </p>
+      </div>
+
+      {/* Featured Editorial Collage Section (Inspired by d_template.jpg) */}
+      <div className="mb-14 sm:mb-18 md:mb-20">
+        <FeaturedMomentsCollage onPhotoClick={openLightbox} />
+      </div>
+
+      {/* Full Carousel Section Header & Transition */}
+      <div className="text-center mb-8 md:mb-10">
+        <div className="inline-flex items-center justify-center gap-2.5 px-4 py-1.5 rounded-full bg-white/70 border border-[#511419]/15 backdrop-blur-sm shadow-2xs mb-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#511419] animate-pulse" />
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#511419] font-medium font-sans">
+            Bộ Sưu Tập Trọn Vẹn ({photos.length} Khoảnh Khắc)
+          </span>
+        </div>
+        <p className="text-xs sm:text-sm text-[#6b4423]/75 italic">
+          Vuốt ngang hoặc chọn ảnh bên dưới để ngắm nhìn chi tiết
         </p>
       </div>
 

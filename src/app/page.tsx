@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { HeroSection } from '@/components/sites/chungdoi/HeroSection';
 import { SaveTheDateSection } from '@/components/sites/chungdoi/SaveTheDateSection';
 import { WeddingInfoCard } from '@/components/sites/chungdoi/WeddingInfoCard';
@@ -11,7 +11,12 @@ import { GuestbookSection } from '@/components/sites/chungdoi/GuestbookSection';
 import { GiftBoxSection } from '@/components/sites/chungdoi/GiftBoxSection';
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(window.location.search).has('open');
+    }
+    return false;
+  });
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleOpenInvitation = () => {
