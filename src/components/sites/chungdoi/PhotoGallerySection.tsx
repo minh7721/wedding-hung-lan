@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause, Sparkles, Film, Heart } from 'lucide-react';
 
 import { FeaturedMomentsCollage } from './FeaturedMomentsCollage';
 
@@ -16,27 +16,168 @@ function useMounted() {
   );
 }
 
-export const photos = [
-  { id: 1, src: '/images/anh_cuoi_thao/optimized/PL_06859.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Váy cưới công chúa' },
-  { id: 2, src: '/images/anh_cuoi_thao/optimized/PL_06884.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Khoảnh khắc ngọt ngào' },
-  { id: 3, src: '/images/anh_cuoi_thao/optimized/PL_06945.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Bên tường hoa trắng' },
-  { id: 4, src: '/images/anh_cuoi_thao/optimized/PL_06955.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Ánh mắt yêu thương' },
-  { id: 5, src: '/images/anh_cuoi_thao/optimized/PL_06963.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ cười cô dâu rạng rỡ' },
-  { id: 6, src: '/images/anh_cuoi_thao/optimized/PL_06974.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Dịu dàng tựa vai' },
-  { id: 7, src: '/images/anh_cuoi_thao/optimized/PL_07029.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Save The Date' },
-  { id: 8, src: '/images/anh_cuoi_thao/optimized/PL_07047.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Chúc mừng hạnh phúc' },
-  { id: 9, src: '/images/anh_cuoi_thao/optimized/PL_07084.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Bàn tiệc rượu vui tươi' },
-  { id: 10, src: '/images/anh_cuoi_thao/optimized/PL_07108.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ hôn vầng trán' },
-  { id: 11, src: '/images/anh_cuoi_thao/optimized/PL_07131.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Suit trắng lịch lãm' },
-  { id: 12, src: '/images/anh_cuoi_thao/optimized/PL_07141.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Cùng bước chung đôi' },
-  { id: 13, src: '/images/anh_cuoi_thao/optimized/PL_07169.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ hôn trên tay dịu dàng' },
-  { id: 14, src: '/images/anh_cuoi_thao/optimized/PL_07175.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Hỷ sự cát tường' },
-  { id: 15, src: '/images/anh_cuoi_thao/optimized/PL_07199.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Rạng rỡ chữ Hỷ' },
-  { id: 16, src: '/images/anh_cuoi_thao/optimized/PL_07203.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Tình yêu viên mãn' },
-  { id: 17, src: '/images/anh_cuoi_thao/optimized/PL_07225.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Hướng về tương lai' },
-  { id: 18, src: '/images/anh_cuoi_thao/optimized/PL_07313.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Tuxedo & Khăn voan' },
-  { id: 19, src: '/images/anh_cuoi_thao/optimized/PL_07347.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Áo dài truyền thống' },
-  { id: 20, src: '/images/anh_cuoi_thao/optimized/PL_07382.webp', alt: 'Ảnh cưới Minh Hùng & Hương Lan - Duyên dáng trăm năm' },
+export interface GalleryPhoto {
+  id: number;
+  src: string;
+  alt: string;
+  title: string;
+  caption?: string;
+  objectPosition?: string;
+}
+
+export const photos: GalleryPhoto[] = [
+  {
+    id: 1,
+    src: '/images/anh_cuoi_hung_lan/optimized/Untitled-1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Dải phim kỷ niệm 3 khoảnh khắc chung đôi',
+    title: 'Dải Phim Kỷ Niệm',
+    caption: '3 khoảnh khắc ngọt ngào dưới tấm voan cưới',
+    objectPosition: 'center center',
+  },
+  {
+    id: 2,
+    src: '/images/anh_cuoi_hung_lan/optimized/IMG_9126.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nhẫn cưới hạnh phúc',
+    title: 'Nhẫn Cưới Hạnh Phúc',
+    caption: 'Ngón tay đeo nhẫn, hẹn ước trăm năm',
+    objectPosition: 'center 18%',
+  },
+  {
+    id: 3,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02608_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Khoảnh khắc ngọt ngào bên nhau',
+    title: 'Khoảnh Khắc Ngọt Ngào',
+    caption: 'Ôm trọn yêu thương giữa thiên nhiên xanh ngát',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 4,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02854_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Lễ phục sang trọng bên rèm nhung đỏ',
+    title: 'Lễ Phục Sang Trọng',
+    caption: 'Suit trắng lịch lãm & váy cưới đuôi cá kiêu sa',
+    objectPosition: 'center 15%',
+  },
+  {
+    id: 5,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02642_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Điệu khiêu vũ tình yêu trên thảm cỏ',
+    title: 'Điệu Khiêu Vũ Tình Yêu',
+    caption: 'Xoay tròn trong vũ khúc hạnh phúc',
+    objectPosition: 'center 22%',
+  },
+  {
+    id: 6,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_03507_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Áo dài Song Hỷ cát tường',
+    title: 'Song Hỷ Cát Tường',
+    caption: 'Áo dài truyền thống rạng rỡ chữ Song Hỷ 囍',
+    objectPosition: 'center 22%',
+  },
+  {
+    id: 7,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02631_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ hôn vầng trán dịu dàng',
+    title: 'Nụ Hôn Vầng Trán',
+    caption: 'Dịu dàng nâng niu từng phút giây',
+    objectPosition: 'center 18%',
+  },
+  {
+    id: 8,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02633_2.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Lời hẹn ước trọn đời',
+    title: 'Lời Hẹn Ước Trọn Đời',
+    caption: 'Love is such a powerful force...',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 9,
+    src: '/images/anh_cuoi_hung_lan/optimized/IMG_9125.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Cùng bước chung đôi',
+    title: 'Cùng Bước Chung Đôi',
+    caption: 'Nắm tay em đi qua mọi thăng trầm',
+    objectPosition: 'center 18%',
+  },
+  {
+    id: 10,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02840.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Lời thề nguyện His & Her Vows',
+    title: 'Lời Thề Nguyện (His & Her Vows)',
+    caption: 'Sổ thề nguyện thắt nơ đỏ thiêng liêng',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 11,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_03579_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nụ cười rạng rỡ cô dâu Hương Lan',
+    title: 'Nàng Dâu Duyên Dáng',
+    caption: 'Góc nghiêng kiều diễm bên quạt hoa đỏ',
+    objectPosition: 'center 18%',
+  },
+  {
+    id: 12,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02723.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Khoảnh khắc hồn nhiên cùng chiếc máy ảnh',
+    title: 'Khoảnh Khắc Hồn Nhiên',
+    caption: 'Nụ cười rạng rỡ khi cùng xem lại bức hình vừa chụp',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 13,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02795_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nàng thơ kiều diễm trong tà voan trắng',
+    title: 'Nàng Thơ Trong Nắng',
+    caption: 'Tà voan cưới bồng bềnh phủ tràn thảm cỏ',
+    objectPosition: 'center 22%',
+  },
+  {
+    id: 14,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02908.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Nhiếp ảnh gia của riêng em',
+    title: 'Nhiếp Ảnh Gia Của Em',
+    caption: 'Ghi lại mọi khoảnh khắc lung linh nhất của em',
+    objectPosition: 'center 22%',
+  },
+  {
+    id: 15,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02959_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Bên nhau bình yên',
+    title: 'Bên Nhau Bình Yên',
+    caption: 'Ánh nhìn ấm áp thắp sáng mọi yêu thương',
+    objectPosition: 'center 22%',
+  },
+  {
+    id: 16,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02991.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Khăn voan e ấp dưới ánh đèn',
+    title: 'Khăn Voan E Ấp',
+    caption: 'Dưới ánh đèn sân khấu lung linh ngập tràn hạnh phúc',
+    objectPosition: 'center 18%',
+  },
+  {
+    id: 17,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_03461_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Áo dài trắng bên thư pháp Nhà Có Hỷ',
+    title: 'Nhà Có Hỷ',
+    caption: 'Áo dài lụa trắng bên thư pháp mừng đại hỷ',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 18,
+    src: '/images/anh_cuoi_hung_lan/optimized/IMG_9147.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Pháo hoa giấy chào đón ngày trọng đại',
+    title: 'Chào Đón Ngày Chung Đôi',
+    caption: 'Cánh hoa giấy rơi rộn ràng trong tiếng cười hạnh phúc',
+    objectPosition: 'center 20%',
+  },
+  {
+    id: 19,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_03525_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Hân hoan ngày đại hỷ',
+    title: 'Hân Hoan Ngày Đại Hỷ',
+    caption: 'Mở rộng vòng tay đón chào tương lai rạng ngời',
+    objectPosition: 'center 20%',
+  },
 ];
 
 const AUTOPLAY_DURATION = 2000; // ms per slide
@@ -356,8 +497,100 @@ export function PhotoGallerySection() {
       </div>
 
       {/* Featured Editorial Collage Section (Inspired by d_template.jpg) */}
-      <div className="mb-14 sm:mb-18 md:mb-20">
+      <div className="mb-12 sm:mb-16 md:mb-18">
         <FeaturedMomentsCollage onPhotoClick={openLightbox} />
+      </div>
+
+      {/* Dedicated Photostrip Highlight Section: Dải Phim Hạnh Phúc (Untitled-1.jpeg) */}
+      <div className="mb-14 sm:mb-18 md:mb-20 max-w-[580px] mx-auto px-2 sm:px-4">
+        <div
+          className="relative rounded-3xl sm:rounded-[36px] p-5 sm:p-7 md:p-8 border border-[#511419]/15 shadow-[0_22px_55px_-12px_rgba(81,20,25,0.18)] overflow-hidden text-center"
+          style={{
+            backgroundColor: '#FAF7F2',
+            backgroundImage: 'url(/sites/chungdoi/images/paper-texture.webp)',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '160px 160px',
+          }}
+        >
+          {/* Ambient vignette */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/20 pointer-events-none" />
+
+          {/* Section Badge */}
+          <div className="relative z-10 inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-[#511419]/10 border border-[#511419]/15 text-[#511419] text-[11px] sm:text-xs font-serif tracking-[0.18em] uppercase mb-3 backdrop-blur-xs">
+            <Film className="w-3.5 h-3.5 text-[#511419]" />
+            <span className="font-medium">Khoảnh Khắc Kỷ Niệm • Photostrip</span>
+          </div>
+
+          {/* Title */}
+          <h3
+            className="relative z-10 text-2xl sm:text-3xl md:text-[32px] font-normal leading-tight tracking-[0.02em] text-[#511419] mb-2"
+            style={{ fontFamily: '"Cormorant Garamond", "Times New Roman", serif' }}
+          >
+            Dải Phim Hạnh Phúc
+          </h3>
+
+          <p className="relative z-10 text-xs sm:text-sm text-[#6b4423]/80 italic max-w-md mx-auto mb-6 leading-relaxed">
+            Ba khoảnh khắc e ấp dưới tấm voan cưới dịu dàng, lưu giữ trọn vẹn từng cung bậc ngọt ngào và ánh mắt yêu thương của Minh Hùng & Hương Lan.
+          </p>
+
+          {/* The Vintage Filmstrip Photo Frame */}
+          <div className="relative z-10 max-w-[340px] sm:max-w-[390px] mx-auto">
+            {/* Top Golden Heart Seal Pin */}
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 w-8 h-8 rounded-full bg-gradient-to-br from-[#d4af37] via-[#f7e7a9] to-[#aa8010] shadow-[0_4px_10px_rgba(81,20,25,0.35)] ring-2 ring-white flex items-center justify-center">
+              <Heart className="w-4 h-4 text-[#511419] fill-[#511419]" />
+            </div>
+
+            {/* Clickable Photostrip Card */}
+            <div
+              onClick={() => openLightbox(0)}
+              className="group relative rounded-2xl bg-white p-2.5 sm:p-3 pt-5 sm:pt-6 shadow-[0_16px_38px_rgba(81,20,25,0.18),0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/5 cursor-pointer transition-all duration-500 hover:shadow-[0_24px_50px_rgba(81,20,25,0.28)] hover:-translate-y-1.5 active:scale-[0.99]"
+              title="Bấm để xem dải phim phóng to chi tiết"
+            >
+              {/* Photo Container preserving exact aspect ratio 1285/1800 (~0.714) */}
+              <div className="relative w-full aspect-[1285/1800] rounded-xl overflow-hidden bg-[#220408]">
+                <Image
+                  src="/images/anh_cuoi_hung_lan/optimized/Untitled-1.webp"
+                  alt="Dải phim kỷ niệm 3 khoảnh khắc cưới của Minh Hùng & Hương Lan"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 340px, 420px"
+                  className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-103"
+                />
+
+                {/* Shimmer sweep on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-tr from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transform duration-1000 transition-transform" />
+
+                {/* Floating Zoom Action Badge */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 px-4 py-1.5 rounded-full bg-white/95 text-[#511419] text-xs font-serif font-medium shadow-lg backdrop-blur-xs flex items-center gap-1.5 whitespace-nowrap">
+                  <Maximize2 className="w-3.5 h-3.5 text-[#511419]" />
+                  <span>Phóng to xem trọn vẹn 3 ảnh</span>
+                </div>
+              </div>
+
+              {/* Filmstrip Footer Label */}
+              <div className="pt-3 pb-1 flex items-center justify-between px-2 text-[10px] sm:text-[11px] font-sans tracking-widest text-[#511419]/60 uppercase">
+                <span>Hùng & Lan</span>
+                <span className="font-serif italic capitalize text-[#511419]/80">Perfect Wedding Photo</span>
+                <span>25 • 10 • 2026</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Delicate Divider & Quote */}
+          <div className="relative z-10 mt-6 pt-2 flex flex-col items-center">
+            <div className="flex items-center justify-center gap-2 mb-2 opacity-50">
+              <span className="h-px w-6 sm:w-8 bg-[#511419]" />
+              <Sparkles className="w-3 h-3 text-[#511419]" />
+              <span className="h-px w-6 sm:w-8 bg-[#511419]" />
+            </div>
+            <p
+              className="text-xs sm:text-sm italic tracking-wide"
+              style={{ color: '#511419', fontFamily: 'Times New Roman, serif' }}
+            >
+              "Từng khoảnh khắc trôi qua, tình yêu ta trao nhau càng thêm sâu đậm."
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Full Carousel Section Header & Transition */}
@@ -483,6 +716,7 @@ export function PhotoGallerySection() {
                     sizes="(max-width: 640px) 240px, (max-width: 1024px) 300px, 360px"
                     priority={Math.abs(offset) <= 1}
                     className="object-cover pointer-events-none select-none transition-transform duration-700 hover:scale-105"
+                    style={{ objectPosition: photo.objectPosition || 'center 20%' }}
                   />
 
                   {/* Dim overlay for non-active side cards */}

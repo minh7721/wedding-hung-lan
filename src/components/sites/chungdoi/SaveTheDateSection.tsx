@@ -19,19 +19,29 @@ interface SaveTheDateSectionProps {
 
 const AVAILABLE_PHOTOS = [
   {
-    id: 'thao-1',
-    label: 'Ảnh cưới cô dâu chú rể',
-    src: '/images/anh_cuoi_thao/PL_06859_optimized.webp',
+    id: 'hung-lan-sweet',
+    label: 'Khoảnh khắc ngọt ngào',
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02608_1.webp',
   },
   {
-    id: 'demo-couple',
-    label: 'Ảnh mẫu từ thiết kế (Demo)',
-    src: '/sites/chungdoi/images/hero-couple.webp',
+    id: 'hung-lan-photostrip',
+    label: 'Dải phim kỷ niệm (3 khoảnh khắc)',
+    src: '/images/anh_cuoi_hung_lan/optimized/Untitled-1.webp',
   },
   {
-    id: 'thao-2',
-    label: 'Ảnh cưới đen trắng',
-    src: '/images/anh_cuoi_thao/PL_06884_optimized.webp',
+    id: 'hung-lan-ring',
+    label: 'Nhẫn cưới hạnh phúc',
+    src: '/images/anh_cuoi_hung_lan/optimized/IMG_9126.webp',
+  },
+  {
+    id: 'hung-lan-formal',
+    label: 'Lễ phục sang trọng',
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02854_1.webp',
+  },
+  {
+    id: 'hung-lan-aodai',
+    label: 'Áo dài Song Hỷ',
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_03507_1.webp',
   },
 ];
 
@@ -156,8 +166,10 @@ export function SaveTheDateSection({ initialPhoto }: SaveTheDateSectionProps) {
             >
               <img
                 src={currentPhoto}
-                alt="Ảnh cưới cô dâu chú rể"
-                className="h-full w-full object-cover object-[center_18%] transition-transform duration-700 group-hover:scale-110"
+                alt="Ảnh cưới Minh Hùng & Hương Lan"
+                className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
+                  currentPhoto.includes('Untitled-1') ? 'object-center' : 'object-[center_18%]'
+                }`}
               />
 
               {/* Hover Zoom Badge */}

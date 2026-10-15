@@ -104,13 +104,13 @@ export function ReceptionDetailsCard() {
               <div className="rounded-xl p-3 border border-[#ECE4D8]/20 bg-black/10">
                 <p className="text-[10px] uppercase mb-1 opacity-70 tracking-wider">Đón Khách</p>
                 <p className="text-xl font-bold" style={{ fontFamily: 'Times New Roman, serif' }}>
-                  17:00
+                  16:00
                 </p>
               </div>
               <div className="rounded-xl p-3 border border-[#ECE4D8]/20 bg-black/10">
                 <p className="text-[10px] uppercase mb-1 opacity-70 tracking-wider">Khai Tiệc</p>
                 <p className="text-xl font-bold" style={{ fontFamily: 'Times New Roman, serif' }}>
-                  17:30
+                  16:30
                 </p>
               </div>
             </div>

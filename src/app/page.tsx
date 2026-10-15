@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { HeroSection } from '@/components/sites/chungdoi/HeroSection';
 import { SaveTheDateSection } from '@/components/sites/chungdoi/SaveTheDateSection';
 import { WeddingInfoCard } from '@/components/sites/chungdoi/WeddingInfoCard';
@@ -17,6 +17,12 @@ export default function Home() {
   const [isOpening, setIsOpening] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const risingHeartsRef = useRef<RisingHeartsHandle>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('open')) {
+      setIsOpen(true);
+    }
+  }, []);
 
   const handleOpenInvitation = useCallback(() => {
     if (isOpening || isOpen) return;

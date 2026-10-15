@@ -46,7 +46,7 @@ export function GiftBoxSection() {
               <div className="flex justify-center mb-3">
                 <div className="w-40 h-40 rounded-2xl flex items-center justify-center shadow-md overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
                   <img
-                    src="/images/anh_cuoi_thao/stk_thao.jpeg"
+                    src="/images/stk_qr.jpeg"
                     alt="QR Code"
                     className="w-full h-full object-cover"
                   />
@@ -81,7 +81,7 @@ export function GiftBoxSection() {
               <div className="flex justify-center mb-3">
                 <div className="w-40 h-40 rounded-2xl flex items-center justify-center shadow-md overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
                   <img
-                    src="/images/anh_cuoi_thao/stk_thao.jpeg"
+                    src="/images/stk_qr.jpeg"
                     alt="QR Code"
                     className="w-full h-full object-cover"
                   />

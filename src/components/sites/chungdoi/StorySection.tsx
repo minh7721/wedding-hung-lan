@@ -12,23 +12,23 @@ export function StorySection() {
             date="Mùa xuân 2020"
             title="Lần đầu gặp gỡ"
             description="Chúng tôi gặp nhau lần đầu trong một buổi chiều mùa xuân ấm áp. Từ cái nhìn đầu tiên, chúng tôi đã biết rằng đây là người đặc biệt."
-            image="/sites/chungdoi/images/story-1.jpg"
+            image="/images/anh_cuoi_hung_lan/optimized/SM_02723.webp"
           />
 
           {/* Proposal */}
           <StoryCard
-            date="Mùa đông 2024"
+            date="Mùa đông 2025"
             title="Lời cầu hôn"
-            description="Dưới ánh trăng lãng mạn của một đêm đông, anh đã quỳ gối và hỏi em câu hỏi quan trọng nhất đời anh. Và em đã gật đầu với hạnh phúc tràn ngập."
-            image="/sites/chungdoi/images/story-2.jpg"
+            description="Dưới ánh nến lung linh và chiếc nhẫn hẹn ước, anh đã trao em lời hứa trọn đời. Và em đã gật đầu cùng nụ cười hạnh phúc rạng ngời."
+            image="/images/anh_cuoi_hung_lan/optimized/IMG_9126.webp"
           />
 
           {/* Wedding */}
           <StoryCard
-            date="25 tháng 12, 2024"
+            date="25 tháng 10, 2026"
             title="Ngày trọng đại"
-            description="Và giờ đây, chúng tôi sẵn sàng bước vào chặng đường mới cùng nhau, với sự chứng kiến của gia đình và bạn bè thân yêu."
-            image="/sites/chungdoi/images/story-3.jpg"
+            description="Và giờ đây, chúng tôi sẵn sàng bước vào chặng đường mới cùng nhau, với sự chứng kiến và chúc phúc của hai bên gia đình và bạn bè thân yêu."
+            image="/images/anh_cuoi_hung_lan/optimized/SM_02854_1.webp"
           />
         </div>
       </div>

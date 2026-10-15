@@ -3,12 +3,12 @@
 import { useState } from 'react';
 
 const gallery = [
-  '/sites/chungdoi/images/gallery-1.jpg',
-  '/sites/chungdoi/images/gallery-2.jpg',
-  '/sites/chungdoi/images/gallery-3.jpg',
-  '/sites/chungdoi/images/gallery-4.jpg',
-  '/sites/chungdoi/images/gallery-5.jpg',
-  '/sites/chungdoi/images/gallery-6.jpg',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02608_1.webp',
+  '/images/anh_cuoi_hung_lan/optimized/IMG_9126.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02854_1.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02642_1.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_03507_1.webp',
+  '/images/anh_cuoi_hung_lan/optimized/Untitled-1.webp',
 ];
 
 export function GallerySection() {
