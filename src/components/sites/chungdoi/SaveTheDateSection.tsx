@@ -1,7 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Maximize2, X, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { useState, useEffect, useCallback, useSyncExternalStore } from 'react';
+import { createPortal } from 'react-dom';
+import { Maximize2, X, Sparkles, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const emptySubscribe = () => () => {};
+function useMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
 
 interface SaveTheDateSectionProps {
   initialPhoto?: string;
@@ -31,27 +41,69 @@ export function SaveTheDateSection({ initialPhoto }: SaveTheDateSectionProps) {
   );
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const mounted = useMounted();
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  const handlePrevPhoto = useCallback(() => {
+    setPhotoIndex((prev) => {
+      const nextIdx = (prev - 1 + AVAILABLE_PHOTOS.length) % AVAILABLE_PHOTOS.length;
+      setCurrentPhoto(AVAILABLE_PHOTOS[nextIdx].src);
+      return nextIdx;
+    });
+  }, []);
+
+  const handleNextPhoto = useCallback(() => {
+    setPhotoIndex((prev) => {
+      const nextIdx = (prev + 1) % AVAILABLE_PHOTOS.length;
+      setCurrentPhoto(AVAILABLE_PHOTOS[nextIdx].src);
+      return nextIdx;
+    });
+  }, []);
+
+  const handleSelectPhoto = (idx: number) => {
+    setPhotoIndex(idx);
+    setCurrentPhoto(AVAILABLE_PHOTOS[idx].src);
+  };
 
   const handleTogglePhoto = () => {
-    const nextIdx = (photoIndex + 1) % AVAILABLE_PHOTOS.length;
-    setPhotoIndex(nextIdx);
-    setCurrentPhoto(AVAILABLE_PHOTOS[nextIdx].src);
+    handleNextPhoto();
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (diff > 45) {
+      handleNextPhoto();
+    } else if (diff < -45) {
+      handlePrevPhoto();
+    }
+    setTouchStartX(null);
   };
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
+    if (!isLightboxOpen) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsLightboxOpen(false);
+      if (e.key === 'ArrowLeft') handlePrevPhoto();
+      if (e.key === 'ArrowRight') handleNextPhoto();
     };
-    if (isLightboxOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      document.body.style.overflow = originalOverflow;
     };
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, handlePrevPhoto, handleNextPhoto]);
 
   return (
     <section
@@ -205,75 +257,110 @@ export function SaveTheDateSection({ initialPhoto }: SaveTheDateSectionProps) {
         </p>
       </div>
 
-      {/* Fullscreen Lightbox Modal */}
-      {isLightboxOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fade-in select-none"
-          onClick={() => setIsLightboxOpen(false)}
-        >
-          {/* Lightbox Header */}
+      {/* Fullscreen Lightbox Modal mounted via React Portal to document.body */}
+      {mounted &&
+        isLightboxOpen &&
+        createPortal(
           <div
-            className="flex items-center justify-between w-full max-w-4xl mx-auto z-20"
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Xem ảnh cưới phóng to"
+            className="fixed inset-0 z-[99999] w-screen h-screen min-h-dvh bg-black/92 backdrop-blur-md flex flex-col justify-between p-3 sm:p-6 select-none animate-fade-in"
+            onClick={() => setIsLightboxOpen(false)}
           >
-            <div className="text-white/80 font-serif text-sm tracking-wider flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-300" />
-              <span>{AVAILABLE_PHOTOS[photoIndex].label}</span>
-            </div>
-
-            <button
-              onClick={() => setIsLightboxOpen(false)}
-              className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
-              title="Đóng (Esc)"
-              aria-label="Đóng"
+            {/* Lightbox Header */}
+            <div
+              className="flex items-center justify-between w-full max-w-4xl mx-auto z-20 shrink-0"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-          </div>
+              <div className="text-white/90 font-serif text-sm sm:text-base tracking-wider flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
+                <span className="font-medium">{AVAILABLE_PHOTOS[photoIndex].label}</span>
+                <span className="text-white/40 text-xs font-sans">
+                  ({photoIndex + 1}/{AVAILABLE_PHOTOS.length})
+                </span>
+              </div>
 
-          {/* Lightbox Main Image */}
-          <div
-            className="relative flex-1 w-full max-w-4xl mx-auto flex items-center justify-center my-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative max-h-[78vh] max-w-full flex items-center justify-center">
-              <img
-                src={currentPhoto}
-                alt="Ảnh cưới phóng to"
-                className="max-h-[78vh] max-w-full object-contain rounded-xl shadow-2xl transition-all duration-300"
-              />
-            </div>
-          </div>
-
-          {/* Lightbox Footer Switcher */}
-          <div
-            className="w-full max-w-md mx-auto z-20 py-2 flex items-center justify-center gap-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {AVAILABLE_PHOTOS.map((item, idx) => (
               <button
-                key={item.id}
-                onClick={() => {
-                  setPhotoIndex(idx);
-                  setCurrentPhoto(item.src);
-                }}
-                className={`relative w-12 h-16 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ${
-                  photoIndex === idx
-                    ? 'ring-2 ring-white scale-105 opacity-100 shadow-md'
-                    : 'opacity-40 hover:opacity-80 scale-95'
-                }`}
-                title={item.label}
+                onClick={() => setIsLightboxOpen(false)}
+                className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-white/25 active:scale-95 text-white transition-all cursor-pointer shadow-md backdrop-blur-sm"
+                title="Đóng (Esc)"
+                aria-label="Đóng"
               >
-                <img
-                  src={item.src}
-                  alt={item.label}
-                  className="w-full h-full object-cover"
-                />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
-            ))}
-          </div>
-        </div>
-      )}
+            </div>
+
+            {/* Lightbox Main Image */}
+            <div
+              className="relative flex-1 w-full max-w-5xl mx-auto flex items-center justify-center min-h-0 my-2 touch-pan-y"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* Prev Lightbox Button */}
+              <button
+                onClick={handlePrevPhoto}
+                className="absolute left-1 sm:left-4 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/50 hover:bg-black/80 text-white/90 hover:text-white border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm shadow-xl"
+                aria-label="Ảnh trước"
+                title="Ảnh trước (Phím mũi tên trái)"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+
+              {/* Next Lightbox Button */}
+              <button
+                onClick={handleNextPhoto}
+                className="absolute right-1 sm:right-4 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/50 hover:bg-black/80 text-white/90 hover:text-white border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm shadow-xl"
+                aria-label="Ảnh tiếp theo"
+                title="Ảnh tiếp theo (Phím mũi tên phải)"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+
+              <div className="relative h-full w-full flex items-center justify-center p-2 sm:p-4">
+                <img
+                  key={AVAILABLE_PHOTOS[photoIndex].id}
+                  src={AVAILABLE_PHOTOS[photoIndex].src}
+                  alt={AVAILABLE_PHOTOS[photoIndex].label}
+                  className="max-h-[72vh] sm:max-h-[78vh] max-w-[92vw] sm:max-w-[85vw] object-contain rounded-xl sm:rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* Lightbox Footer Switcher */}
+            <div
+              className="w-full max-w-md mx-auto z-20 shrink-0 py-2 flex flex-col items-center gap-2"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-center gap-2.5">
+                {AVAILABLE_PHOTOS.map((item, idx) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleSelectPhoto(idx)}
+                    className={`relative w-12 sm:w-14 h-16 sm:h-18 rounded-lg overflow-hidden transition-all duration-200 cursor-pointer ${
+                      photoIndex === idx
+                        ? 'ring-2 ring-amber-300 scale-105 opacity-100 shadow-lg'
+                        : 'opacity-40 hover:opacity-80 scale-95 border border-white/20'
+                    }`}
+                    title={item.label}
+                    aria-label={item.label}
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+              <p className="text-white/40 text-[11px] font-sans tracking-wide">
+                Bấm ra ngoài hoặc phím Esc để đóng
+              </p>
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 }

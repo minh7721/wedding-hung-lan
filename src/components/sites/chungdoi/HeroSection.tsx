@@ -8,7 +8,8 @@ interface HeroSectionProps {
   brideName?: string;
   date?: string;
   invitationText?: string;
-  onOpenInvitation?: () => void;
+  onOpenInvitation?: (e?: React.MouseEvent) => void;
+  isOpening?: boolean;
 }
 
 // Subtle romantic floating hearts in the background
@@ -31,6 +32,7 @@ export function HeroSection({
   date = '25 tháng 10, 2026',
   invitationText = 'Thân Mời',
   onOpenInvitation,
+  isOpening = false,
 }: HeroSectionProps) {
   return (
     <section
@@ -65,11 +67,14 @@ export function HeroSection({
 
       {/* Main invitation card */}
       <div
-        className="relative z-10 w-full max-w-[390px] sm:max-w-[580px] md:max-w-[620px] rounded-2xl sm:rounded-3xl overflow-hidden animate-card-fade-in"
+        className={`relative z-10 w-full max-w-[390px] sm:max-w-[580px] md:max-w-[620px] rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-700 ${
+          isOpening ? 'animate-card-opening' : 'animate-card-fade-in'
+        }`}
         style={{
           background: 'linear-gradient(175deg, #FCF9F3 0%, #FAF5EE 55%, #F4ECE0 100%)',
-          boxShadow:
-            '0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 12px 28px -8px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.7)',
+          boxShadow: isOpening
+            ? '0 0 80px rgba(212, 175, 55, 0.45), 0 30px 80px -10px rgba(66, 13, 22, 0.6), inset 0 0 40px rgba(212, 175, 55, 0.25)'
+            : '0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 12px 28px -8px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.7)',
         }}
       >
         {/* Left floral bouquet decoration */}
@@ -100,10 +105,16 @@ export function HeroSection({
         <div className="relative z-20 flex flex-col items-center text-center px-6 sm:px-16 py-8 sm:py-10 md:py-12">
           {/* Top Heart Medallion */}
           <div
-            className="w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-[0_4px_14px_rgba(66,13,22,0.35)] ring-4 ring-[#420d16]/10 transition-transform duration-300 hover:scale-105"
+            className={`w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-[0_4px_14px_rgba(66,13,22,0.35)] ring-4 ring-[#420d16]/10 transition-all duration-500 hover:scale-105 ${
+              isOpening ? 'scale-110 shadow-[0_0_24px_rgba(212,175,55,0.7)] ring-[#d4af37]/40' : ''
+            }`}
             style={{ backgroundColor: '#420d16' }}
           >
-            <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white fill-white" />
+            <Heart
+              className={`w-5 h-5 sm:w-6 sm:h-6 text-white fill-white transition-all duration-300 ${
+                isOpening ? 'animate-heart-pulse text-[#ffd700] fill-[#ffd700]' : ''
+              }`}
+            />
           </div>
 
           {/* Couple Names */}
@@ -181,13 +192,38 @@ export function HeroSection({
 
           {/* Open invitation button */}
           <button
+            type="button"
             onClick={onOpenInvitation}
-            className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-2 sm:py-2.5 rounded-full font-cormorant text-sm sm:text-[15px] font-medium tracking-wider text-[#FAF5EE] shadow-[0_4px_16px_rgba(66,13,22,0.38)] hover:shadow-[0_8px_24px_rgba(66,13,22,0.52)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+            disabled={isOpening}
+            className={`group relative inline-flex items-center justify-center px-8 sm:px-11 py-2.5 sm:py-3 rounded-full font-cormorant text-sm sm:text-[16px] font-medium tracking-wider text-[#FAF5EE] shadow-[0_4px_18px_rgba(66,13,22,0.38)] hover:shadow-[0_8px_28px_rgba(66,13,22,0.55)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 cursor-pointer overflow-hidden ${
+              isOpening
+                ? 'scale-105 ring-4 ring-[#ffd700]/50 shadow-[0_0_30px_rgba(212,175,55,0.6)] cursor-default'
+                : ''
+            }`}
             style={{ backgroundColor: '#420d16' }}
             aria-label="Mở thiệp cưới"
           >
-            <span className="transition-transform duration-300 group-hover:scale-105">
-              Mở thiệp
+            {/* Shimmer light sweep across button */}
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+
+            <span className="relative z-10 flex items-center gap-2">
+              <Heart
+                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 ${
+                  isOpening
+                    ? 'text-[#ffd700] fill-[#ffd700] animate-ping'
+                    : 'text-[#e8bebe] fill-[#e8bebe] group-hover:scale-125'
+                }`}
+              />
+              <span className="tracking-widest">
+                {isOpening ? 'Đang mở thiệp...' : 'Mở thiệp'}
+              </span>
+              <Heart
+                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 ${
+                  isOpening
+                    ? 'text-[#ffd700] fill-[#ffd700] animate-ping'
+                    : 'text-[#e8bebe] fill-[#e8bebe] group-hover:scale-125'
+                }`}
+              />
             </span>
           </button>
         </div>
@@ -212,11 +248,40 @@ export function HeroSection({
             transform: scale(1) translateY(0);
           }
         }
+        @keyframes cardOpening {
+          0% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+          40% {
+            opacity: 1;
+            transform: scale(1.02) translateY(-4px);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1.06) translateY(-16px);
+            filter: blur(6px);
+          }
+        }
+        @keyframes heartPulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.25);
+          }
+        }
         .animate-gentle-float {
           animation: gentleFloat 8s ease-in-out infinite;
         }
         .animate-card-fade-in {
           animation: cardFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-card-opening {
+          animation: cardOpening 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-heart-pulse {
+          animation: heartPulse 0.6s ease-in-out infinite;
         }
       `}</style>
     </section>
