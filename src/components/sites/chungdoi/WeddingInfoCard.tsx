@@ -1,72 +1,76 @@
 export function WeddingInfoCard() {
   return (
-    <section className="relative z-10 mx-auto w-[88%] max-w-[448px] my-8">
-      {/* Large burgundy card with wedding information */}
-      <div className="relative rounded-3xl p-6 md:p-10 shadow-xl" style={{ backgroundColor: '#511419' }}>
-        {/* Decorative corner florals - left */}
-        <div className="absolute top-6 left-6 w-20 h-28 opacity-40">
-          <svg viewBox="0 0 96 128" fill="none">
-            {/* Burgundy roses */}
-            <circle cx="20" cy="25" r="14" fill="#8B2834" opacity="0.8" />
-            <circle cx="18" cy="28" r="10" fill="#A83845" opacity="0.7" />
-            <circle cx="32" cy="40" r="12" fill="#8B2834" opacity="0.75" />
-            {/* Stems and leaves */}
-            <path d="M35 42 L48 58 L55 70" stroke="#7A5C48" strokeWidth="2" fill="none" opacity="0.6" />
-            <path d="M20 25 L28 35 L35 42" stroke="#7A5C48" strokeWidth="2" fill="none" opacity="0.6" />
-            {/* Cream flowers */}
-            <circle cx="50" cy="60" r="8" fill="#E8DCC8" opacity="0.5" />
-            <circle cx="58" cy="72" r="6" fill="#D4C4A8" opacity="0.4" />
-            {/* Leaves */}
-            <ellipse cx="52" cy="65" rx="4" ry="7" fill="#9B8368" opacity="0.4" />
-            <ellipse cx="60" cy="75" rx="3" ry="6" fill="#B8A080" opacity="0.3" />
-          </svg>
-        </div>
+    <section className="relative z-10 mx-auto w-[88%] max-w-[420px] md:max-w-[560px] my-10 sm:my-14">
+      {/* Floral bouquet decoration - Right side */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute block -right-[15%] sm:-right-[18%] md:-right-[22%] bottom-[24%] sm:bottom-[28%] md:bottom-[30%] z-20 w-[38%] sm:w-[40%]"
+        style={{ willChange: 'transform' }}
+      >
+        <span
+          className="block"
+          style={{
+            animation: 'drFloat 5.5s ease-in-out 0.6s infinite normal none running',
+            willChange: 'transform',
+          }}
+        >
+          <img
+            src="/sites/chungdoi/images/flower2-decoration.webp"
+            alt="Họa tiết hoa lễ cưới"
+            className="block w-full max-w-none object-contain drop-shadow-[4px_8px_16px_rgba(0,0,0,0.4)]"
+          />
+        </span>
+      </span>
 
-        {/* Decorative corner florals - right */}
-        <div className="absolute bottom-6 right-6 w-20 h-28 opacity-40 transform rotate-180">
-          <svg viewBox="0 0 96 128" fill="none">
-            {/* Burgundy roses */}
-            <circle cx="20" cy="25" r="14" fill="#8B2834" opacity="0.8" />
-            <circle cx="18" cy="28" r="10" fill="#A83845" opacity="0.7" />
-            <circle cx="32" cy="40" r="12" fill="#8B2834" opacity="0.75" />
-            {/* Stems and leaves */}
-            <path d="M35 42 L48 58 L55 70" stroke="#7A5C48" strokeWidth="2" fill="none" opacity="0.6" />
-            <path d="M20 25 L28 35 L35 42" stroke="#7A5C48" strokeWidth="2" fill="none" opacity="0.6" />
-            {/* Cream flowers */}
-            <circle cx="50" cy="60" r="8" fill="#E8DCC8" opacity="0.5" />
-            <circle cx="58" cy="72" r="6" fill="#D4C4A8" opacity="0.4" />
-            {/* Leaves */}
-            <ellipse cx="52" cy="65" rx="4" ry="7" fill="#9B8368" opacity="0.4" />
-            <ellipse cx="60" cy="75" rx="3" ry="6" fill="#B8A080" opacity="0.3" />
-          </svg>
-        </div>
+      {/* Large burgundy card with wedding information */}
+      <div className="relative overflow-hidden rounded-[14px] md:rounded-2xl px-5 py-9 md:px-8 md:py-10 text-center shadow-[4px_6px_20px_rgba(0,0,0,0.3)]">
+        {/* Deep burgundy background */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 rounded-[14px] md:rounded-2xl"
+          style={{ backgroundColor: '#511419' }}
+        />
+
+        {/* Paper texture overlay */}
+        <img
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 size-full max-w-none object-cover mix-blend-multiply opacity-40 rounded-[14px] md:rounded-2xl"
+          src="/sites/chungdoi/images/paper.webp"
+        />
 
         <div className="relative z-10 text-center" style={{ color: '#ECE4D8' }}>
           {/* Section title */}
-          <h2 className="uppercase text-base md:text-lg font-bold mb-5 tracking-widest" style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '0.15em' }}>
+          <h2
+            className="uppercase text-base md:text-lg font-bold mb-6 tracking-widest"
+            style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '0.15em' }}
+          >
             Thông Tin Lễ Cưới
           </h2>
 
-          {/* Parents info - always 2 columns */}
-          <div className="grid grid-cols-2 gap-2 mb-5">
+          {/* Parents info - 2 columns with vertical separator */}
+          <div className="grid grid-cols-2 relative mb-6">
             {/* Groom's family */}
-            <div className="text-center">
-              <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Ông Bà</p>
+            <div className="text-center pr-3">
+              <p className="text-[10px] md:text-xs uppercase opacity-70 mb-1.5 tracking-wider">Ông Bà</p>
               <p className="font-bold text-xs md:text-sm mb-0.5" style={{ fontFamily: 'Times New Roman, serif' }}>
                 Phan Minh Đức
               </p>
-              <p className="font-bold text-xs md:text-sm mb-1.5" style={{ fontFamily: 'Times New Roman, serif' }}>
+              <p className="font-bold text-xs md:text-sm mb-1" style={{ fontFamily: 'Times New Roman, serif' }}>
                 Phan Thị Hạnh
               </p>
             </div>
 
+            {/* Vertical divider */}
+            <div className="absolute left-1/2 top-1 bottom-1 w-px bg-[#ECE4D8]/20 -translate-x-1/2" />
+
             {/* Bride's family */}
-            <div className="text-center">
-              <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Ông Bà</p>
+            <div className="text-center pl-3">
+              <p className="text-[10px] md:text-xs uppercase opacity-70 mb-1.5 tracking-wider">Ông Bà</p>
               <p className="font-bold text-xs md:text-sm mb-0.5" style={{ fontFamily: 'Times New Roman, serif' }}>
                 Nguyễn Văn Hồng
               </p>
-              <p className="font-bold text-xs md:text-sm mb-1.5" style={{ fontFamily: 'Times New Roman, serif' }}>
+              <p className="font-bold text-xs md:text-sm mb-1" style={{ fontFamily: 'Times New Roman, serif' }}>
                 Trần Thị Nhã
               </p>
             </div>
@@ -80,8 +84,8 @@ export function WeddingInfoCard() {
           </div>
 
           {/* Main announcement */}
-          <div className="my-4">
-            <p className="text-[10px] md:text-xs uppercase tracking-widest mb-3 opacity-80" style={{ letterSpacing: '0.12em' }}>
+          <div className="my-5">
+            <p className="text-[10px] md:text-xs uppercase tracking-widest mb-2 opacity-80" style={{ letterSpacing: '0.12em' }}>
               Trân trọng báo tin
             </p>
             <p className="text-[10px] md:text-xs uppercase tracking-widest mb-4 opacity-80" style={{ letterSpacing: '0.12em' }}>
@@ -89,28 +93,28 @@ export function WeddingInfoCard() {
             </p>
 
             {/* Groom name */}
-            <h3 className="font-viaoda text-3xl md:text-4xl my-3 leading-tight" style={{ lineHeight: '1.2' }}>
+            <h3 className="font-viaoda text-3xl md:text-4xl my-2 leading-tight" style={{ lineHeight: '1.2' }}>
               Phan Minh Hùng
             </h3>
 
-            <p className="text-[10px] uppercase tracking-widest opacity-70 my-2" style={{ letterSpacing: '0.15em' }}>
-              &nbsp;
+            <p className="text-[10px] uppercase tracking-widest opacity-70 my-1" style={{ letterSpacing: '0.15em' }}>
+              Trưởng Nam
             </p>
 
-            {/* Ampersand with decorative lines */}
-            <div className="flex items-center justify-center gap-3 my-4">
+            {/* Ampersand with delicate lines */}
+            <div className="flex items-center justify-center gap-3 my-3">
               <div className="h-px w-12 bg-[#ECE4D8] opacity-20" />
               <span className="text-xl font-serif italic opacity-80">&</span>
               <div className="h-px w-12 bg-[#ECE4D8] opacity-20" />
             </div>
 
             {/* Bride name */}
-            <h3 className="font-viaoda text-3xl md:text-4xl my-3 leading-tight" style={{ lineHeight: '1.2' }}>
+            <h3 className="font-viaoda text-3xl md:text-4xl my-2 leading-tight" style={{ lineHeight: '1.2' }}>
               Nguyễn Hương Lan
             </h3>
 
-            <p className="text-[10px] uppercase tracking-widest opacity-70 my-2" style={{ letterSpacing: '0.15em' }}>
-              &nbsp;
+            <p className="text-[10px] uppercase tracking-widest opacity-70 my-1" style={{ letterSpacing: '0.15em' }}>
+              Út Nữ
             </p>
           </div>
 
@@ -123,7 +127,7 @@ export function WeddingInfoCard() {
 
           {/* Wedding ceremony info */}
           <div className="mt-5">
-            <p className="text-[10px] md:text-xs uppercase tracking-widest mb-2 opacity-80" style={{ letterSpacing: '0.12em' }}>
+            <p className="text-[10px] md:text-xs uppercase tracking-widest mb-1 opacity-80" style={{ letterSpacing: '0.12em' }}>
               Lễ thành hôn được cử hành tại
             </p>
             <p className="text-[10px] md:text-xs uppercase tracking-widest mb-4 opacity-80" style={{ letterSpacing: '0.12em' }}>
@@ -131,20 +135,24 @@ export function WeddingInfoCard() {
             </p>
 
             {/* Time and date */}
-            <div className="mb-4">
-              <p className="text-[10px] uppercase opacity-70 mb-1.5 tracking-wider">Vào lúc 13:30</p>
-              <p className="text-[10px] uppercase opacity-70 mb-3 tracking-wider">Chủ Nhật</p>
+            <div className="mb-2">
+              <p className="text-[10px] md:text-xs uppercase opacity-75 mb-3 tracking-wider">
+                Vào lúc 13:30 Chủ Nhật
+              </p>
 
-              {/* Large date */}
-              <div className="flex items-end justify-center gap-3 mb-2">
-                <span className="text-5xl md:text-6xl font-bold leading-none">25</span>
-                <div className="text-left pb-1">
-                  <p className="text-xs md:text-sm uppercase font-semibold leading-tight">Tháng 10</p>
-                  <p className="text-xs md:text-sm uppercase font-semibold leading-tight">2026</p>
+              {/* Large date display with vertical separator */}
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <span className="text-5xl md:text-6xl font-bold leading-none" style={{ fontFamily: 'Times New Roman, serif' }}>
+                  25
+                </span>
+                <div className="h-10 w-px bg-[#ECE4D8]/30 mx-1" />
+                <div className="text-left leading-tight">
+                  <p className="text-xs md:text-sm uppercase font-semibold tracking-wider">Tháng 10</p>
+                  <p className="text-xs md:text-sm uppercase font-semibold tracking-wider opacity-80">2026</p>
                 </div>
               </div>
 
-              <p className="text-[10px] opacity-60 mt-2">
+              <p className="text-[10px] md:text-xs opacity-60 mt-3">
                 (Tức ngày 16 tháng 09 năm Bính Ngọ)
               </p>
             </div>

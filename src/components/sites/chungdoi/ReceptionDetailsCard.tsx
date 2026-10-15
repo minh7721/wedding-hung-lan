@@ -1,184 +1,218 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Heart } from 'lucide-react';
 import { RSVPModal } from './RSVPModal';
 
 export function ReceptionDetailsCard() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false);
 
+  const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+    'Tiệc Cưới: Minh Hùng & Hương Lan'
+  )}&dates=20261024T103000Z/20261024T143000Z&details=${encodeURIComponent(
+    'Trân trọng kính mời bạn đến chung vui cùng chúng tôi trong ngày vui trọng đại!'
+  )}&location=${encodeURIComponent('Trung Tâm Hội Nghị & Tiệc Cưới')}`;
+
   return (
     <>
-      <section className="relative z-10 mx-auto w-[88%] max-w-[448px] my-8">
-      {/* Burgundy card */}
-      <div className="relative rounded-3xl p-6 md:p-10 shadow-xl" style={{ backgroundColor: '#511419' }}>
-        {/* Decorative corner florals - left */}
-        <div className="absolute top-6 left-6 w-16 h-24 opacity-40">
-          <svg viewBox="0 0 80 112" fill="none">
-            {/* Burgundy roses */}
-            <circle cx="18" cy="20" r="12" fill="#8B2834" opacity="0.8" />
-            <circle cx="16" cy="23" r="9" fill="#A83845" opacity="0.7" />
-            <circle cx="28" cy="34" r="10" fill="#8B2834" opacity="0.75" />
-            {/* Stems and leaves */}
-            <path d="M30 36 L42 50 L48 60" stroke="#7A5C48" strokeWidth="1.8" fill="none" opacity="0.6" />
-            <path d="M18 20 L24 30 L30 36" stroke="#7A5C48" strokeWidth="1.8" fill="none" opacity="0.6" />
-            {/* Cream flowers */}
-            <circle cx="44" cy="52" r="7" fill="#E8DCC8" opacity="0.5" />
-            <circle cx="50" cy="62" r="5" fill="#D4C4A8" opacity="0.4" />
-            {/* Leaves */}
-            <ellipse cx="46" cy="56" rx="3.5" ry="6" fill="#9B8368" opacity="0.4" />
-            <ellipse cx="52" cy="65" rx="2.5" ry="5" fill="#B8A080" opacity="0.3" />
-          </svg>
-        </div>
+      <section className="relative z-10 mx-auto w-[88%] max-w-[420px] md:max-w-[560px] my-10 sm:my-14">
+        {/* Floral bouquet decoration - Left side (mirrored) */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute block -left-[14%] sm:-left-[16%] md:-left-[18%] top-[8%] sm:top-[10%] z-20 w-[26%] sm:w-[28%] md:w-[30%]"
+          style={{ willChange: 'transform' }}
+        >
+          <span
+            className="block"
+            style={{
+              animation: 'drFloat 6s ease-in-out 0.3s infinite normal none running',
+              willChange: 'transform',
+            }}
+          >
+            <img
+              src="/sites/chungdoi/images/flower2-decoration.webp"
+              alt="Họa tiết hoa tiệc cưới"
+              className="block w-full max-w-none object-contain scale-x-[-1] drop-shadow-[-4px_8px_16px_rgba(0,0,0,0.4)]"
+            />
+          </span>
+        </span>
 
-        <div className="relative z-10 text-center" style={{ color: '#ECE4D8' }}>
-          {/* Title */}
-          <h2 className="uppercase text-base md:text-lg font-bold mb-5 tracking-widest" style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '0.15em' }}>
-            Thông Tin Tiệc Cưới
-          </h2>
+        {/* Main burgundy card */}
+        <div className="relative overflow-hidden rounded-[14px] md:rounded-2xl px-5 py-9 md:px-8 md:py-10 text-center shadow-[4px_6px_20px_rgba(0,0,0,0.3)]">
+          {/* Deep burgundy background */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 rounded-[14px] md:rounded-2xl"
+            style={{ backgroundColor: '#511419' }}
+          />
 
-          <h3 className="uppercase text-xs mb-4 opacity-80 tracking-widest" style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '0.12em' }}>
-            Tiệc cưới sẽ diễn ra vào lúc:
-          </h3>
+          {/* Paper texture overlay */}
+          <img
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 size-full max-w-none object-cover mix-blend-multiply opacity-40 rounded-[14px] md:rounded-2xl"
+            src="/sites/chungdoi/images/paper.webp"
+          />
 
-          {/* Main time and day */}
-          <div className="my-4">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="text-4xl md:text-5xl font-bold leading-none" style={{ fontFamily: 'Times New Roman, serif' }}>
-                17:30
-              </span>
-            </div>
-            <p className="text-[10px] uppercase tracking-wider opacity-70 mb-3">Thứ Bảy</p>
-          </div>
-
-          {/* Large date display */}
-          <div className="flex items-end justify-center gap-3 my-4">
-            <span className="text-5xl md:text-6xl font-bold leading-none">24</span>
-            <div className="text-left pb-1">
-              <p className="text-xs md:text-sm uppercase font-semibold leading-tight">Tháng 10</p>
-              <p className="text-xs md:text-sm uppercase font-semibold leading-tight">2026</p>
-            </div>
-          </div>
-
-          <p className="text-[10px] uppercase tracking-wider opacity-60 my-3">
-            (Tức ngày 15 tháng 09 năm Bính Ngọ)
-          </p>
-
-          {/* Decorative divider */}
-          <div className="flex items-center justify-center gap-3 my-4">
-            <div className="h-px w-16 bg-[#ECE4D8] opacity-20" />
-            <div className="w-1.5 h-1.5 rounded-full bg-[#ECE4D8] opacity-40" />
-            <div className="h-px w-16 bg-[#ECE4D8] opacity-20" />
-          </div>
-
-          {/* Event schedule boxes */}
-          <div className="grid grid-cols-2 gap-3 my-5">
-            <div className="rounded-lg p-3 border border-[#ECE4D8]/20">
-              <p className="text-[10px] uppercase mb-1.5 opacity-70 tracking-wide">Đón Khách</p>
-              <p className="text-xl font-semibold" style={{ fontFamily: 'Times New Roman, serif' }}>
-                17:00
-              </p>
-            </div>
-            <div className="rounded-lg p-3 border border-[#ECE4D8]/20">
-              <p className="text-[10px] uppercase mb-1.5 opacity-70 tracking-wide">Khai Tiệc</p>
-              <p className="text-xl font-semibold" style={{ fontFamily: 'Times New Roman, serif' }}>
-                17:30
-              </p>
-            </div>
-          </div>
-
-          {/* Mini calendar */}
-          <div className="mt-6 p-5 rounded-2xl" style={{ backgroundColor: '#ECE4D8' }}>
-            <div className="flex items-center justify-center mb-3">
-              <span className="text-sm font-serif italic" style={{ color: '#511419' }}>
-                Tháng 10 / 2026
-              </span>
-            </div>
-
-            {/* Calendar grid */}
-            <div className="grid grid-cols-7 gap-1 text-center text-xs mb-3" style={{ color: '#511419' }}>
-              {/* Day headers */}
-              {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map((day) => (
-                <div key={day} className="text-[10px] font-semibold opacity-60 py-1.5 border-b border-[#511419]/10">
-                  {day}
-                </div>
-              ))}
-
-              {/* Week 1 - October 2026 starts on Thursday */}
-              <div />
-              <div />
-              <div className="py-1.5 opacity-30">1</div>
-              <div className="py-1.5 opacity-30">2</div>
-              <div className="py-1.5 opacity-30">3</div>
-              <div className="py-1.5 opacity-30">4</div>
-              <div className="py-1.5 opacity-30">5</div>
-
-              {/* Week 2 */}
-              <div className="py-1.5 opacity-30">6</div>
-              <div className="py-1.5 opacity-30">7</div>
-              <div className="py-1.5 opacity-30">8</div>
-              <div className="py-1.5 opacity-30">9</div>
-              <div className="py-1.5 opacity-30">10</div>
-              <div className="py-1.5 opacity-30">11</div>
-              <div className="py-1.5 opacity-30">12</div>
-
-              {/* Week 3 */}
-              <div className="py-1.5 opacity-30">13</div>
-              <div className="py-1.5 opacity-30">14</div>
-              <div className="py-1.5 opacity-30">15</div>
-              <div className="py-1.5 opacity-30">16</div>
-              <div className="py-1.5 opacity-30">17</div>
-              <div className="py-1.5 opacity-30">18</div>
-              <div className="py-1.5 opacity-30">19</div>
-
-              {/* Week 4 */}
-              <div className="py-1.5 opacity-30">20</div>
-              <div className="py-1.5 opacity-30">21</div>
-              <div className="py-1.5 opacity-30">22</div>
-              <div className="py-1.5 opacity-30">23</div>
-              <div className="relative py-1.5">
-                <div className="relative inline-flex items-center justify-center w-7 h-7 rounded-full" style={{ backgroundColor: '#511419' }}>
-                  <span className="relative z-10 text-white font-semibold text-xs">24</span>
-                  <Heart className="absolute -top-1 -right-1 w-3.5 h-3.5 text-[#FF006E]" fill="#FF006E" />
-                </div>
-              </div>
-              <div className="py-1.5 opacity-30">25</div>
-              <div className="py-1.5 opacity-30">26</div>
-
-              {/* Week 5 */}
-              <div className="py-1.5 opacity-30">27</div>
-              <div className="py-1.5 opacity-30">28</div>
-              <div className="py-1.5 opacity-30">29</div>
-              <div className="py-1.5 opacity-30">30</div>
-              <div className="py-1.5 opacity-30">31</div>
-              <div />
-              <div />
-            </div>
-
-            {/* Calendar link */}
-            <div className="text-center mt-3">
-              <a
-                href="#"
-                className="text-xs underline hover:no-underline transition-all"
-                style={{ color: '#511419' }}
-              >
-                Thêm vào lịch
-              </a>
-            </div>
-
-            {/* Add to calendar button */}
-            <button
-              onClick={() => setIsRSVPModalOpen(true)}
-              className="w-full px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide transition-opacity hover:opacity-90 mt-3"
-              style={{ backgroundColor: '#511419', color: '#ECE4D8' }}
+          <div className="relative z-10 text-center" style={{ color: '#ECE4D8' }}>
+            {/* Title */}
+            <h2
+              className="uppercase text-base md:text-lg font-bold mb-3 tracking-widest"
+              style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '0.15em' }}
             >
-              <Calendar className="inline-block w-3.5 h-3.5 mr-2 mb-0.5" />
-              Xác Nhận Tham Dự
-            </button>
+              Thông Tin Tiệc Cưới
+            </h2>
+
+            <h3
+              className="uppercase text-xs md:text-sm mb-4 opacity-80 tracking-widest"
+              style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '0.12em' }}
+            >
+              Tiệc cưới sẽ diễn ra vào lúc:
+            </h3>
+
+            {/* Main time and day */}
+            <div className="my-2">
+              <p className="text-xs md:text-sm uppercase tracking-wider opacity-75">
+                17:30 THỨ BẢY
+              </p>
+            </div>
+
+            {/* Large date display with vertical separator */}
+            <div className="flex items-center justify-center gap-3 my-3">
+              <span className="text-5xl md:text-6xl font-bold leading-none" style={{ fontFamily: 'Times New Roman, serif' }}>
+                24
+              </span>
+              <div className="h-10 w-px bg-[#ECE4D8]/30 mx-1" />
+              <div className="text-left leading-tight">
+                <p className="text-xs md:text-sm uppercase font-semibold tracking-wider">Tháng 10</p>
+                <p className="text-xs md:text-sm uppercase font-semibold tracking-wider opacity-80">2026</p>
+              </div>
+            </div>
+
+            <p className="text-[10px] md:text-xs uppercase tracking-wider opacity-60 my-2">
+              (Tức ngày 15 tháng 09 năm Bính Ngọ)
+            </p>
+
+            {/* Decorative divider */}
+            <div className="flex items-center justify-center gap-3 my-4">
+              <div className="h-px w-16 bg-[#ECE4D8] opacity-20" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ECE4D8] opacity-40" />
+              <div className="h-px w-16 bg-[#ECE4D8] opacity-20" />
+            </div>
+
+            {/* Event schedule boxes */}
+            <div className="grid grid-cols-2 gap-3 my-5 max-w-[320px] mx-auto">
+              <div className="rounded-xl p-3 border border-[#ECE4D8]/20 bg-black/10">
+                <p className="text-[10px] uppercase mb-1 opacity-70 tracking-wider">Đón Khách</p>
+                <p className="text-xl font-bold" style={{ fontFamily: 'Times New Roman, serif' }}>
+                  17:00
+                </p>
+              </div>
+              <div className="rounded-xl p-3 border border-[#ECE4D8]/20 bg-black/10">
+                <p className="text-[10px] uppercase mb-1 opacity-70 tracking-wider">Khai Tiệc</p>
+                <p className="text-xl font-bold" style={{ fontFamily: 'Times New Roman, serif' }}>
+                  17:30
+                </p>
+              </div>
+            </div>
+
+            {/* Mini calendar box */}
+            <div className="mt-6 p-5 rounded-2xl max-w-[340px] mx-auto shadow-md" style={{ backgroundColor: '#ECE4D8' }}>
+              <div className="flex items-center justify-center mb-3">
+                <span className="text-sm font-serif italic font-medium" style={{ color: '#511419' }}>
+                  Tháng 10 / 2026
+                </span>
+              </div>
+
+              {/* Calendar grid */}
+              <div className="grid grid-cols-7 gap-1 text-center text-xs mb-1" style={{ color: '#511419' }}>
+                {/* Day headers */}
+                {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map((day) => (
+                  <div key={day} className="text-[10px] font-semibold opacity-60 py-1 border-b border-[#511419]/10">
+                    {day}
+                  </div>
+                ))}
+
+                {/* Week 1 - October 2026 starts on Thursday */}
+                <div />
+                <div />
+                <div className="py-1 opacity-30">1</div>
+                <div className="py-1 opacity-30">2</div>
+                <div className="py-1 opacity-30">3</div>
+                <div className="py-1 opacity-30">4</div>
+                <div className="py-1 opacity-30">5</div>
+
+                {/* Week 2 */}
+                <div className="py-1 opacity-30">6</div>
+                <div className="py-1 opacity-30">7</div>
+                <div className="py-1 opacity-30">8</div>
+                <div className="py-1 opacity-30">9</div>
+                <div className="py-1 opacity-30">10</div>
+                <div className="py-1 opacity-30">11</div>
+                <div className="py-1 opacity-30">12</div>
+
+                {/* Week 3 */}
+                <div className="py-1 opacity-30">13</div>
+                <div className="py-1 opacity-30">14</div>
+                <div className="py-1 opacity-30">15</div>
+                <div className="py-1 opacity-30">16</div>
+                <div className="py-1 opacity-30">17</div>
+                <div className="py-1 opacity-30">18</div>
+                <div className="py-1 opacity-30">19</div>
+
+                {/* Week 4 - Highlight Day 24 */}
+                <div className="py-1 opacity-30">20</div>
+                <div className="py-1 opacity-30">21</div>
+                <div className="py-1 opacity-30">22</div>
+                <div className="py-1 opacity-30">23</div>
+                <div className="relative py-1 flex items-center justify-center">
+                  <div
+                    className="relative flex items-center justify-center w-6 h-6 rounded-full shadow-sm"
+                    style={{ backgroundColor: '#511419' }}
+                  >
+                    <span className="text-white font-bold text-[11px]">24</span>
+                  </div>
+                </div>
+                <div className="py-1 opacity-30">25</div>
+                <div className="py-1 opacity-30">26</div>
+
+                {/* Week 5 */}
+                <div className="py-1 opacity-30">27</div>
+                <div className="py-1 opacity-30">28</div>
+                <div className="py-1 opacity-30">29</div>
+                <div className="py-1 opacity-30">30</div>
+                <div className="py-1 opacity-30">31</div>
+                <div />
+                <div />
+              </div>
+            </div>
+
+            {/* Bottom action items matching Screenshot 2 */}
+            <div className="mt-5 space-y-3">
+              <div>
+                <a
+                  href={googleCalendarUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-xs underline underline-offset-4 hover:opacity-80 transition-opacity"
+                  style={{ color: '#ECE4D8' }}
+                >
+                  Thêm vào lịch
+                </a>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => setIsRSVPModalOpen(true)}
+                  className="px-8 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-transform hover:scale-105 shadow-md active:scale-95"
+                  style={{ backgroundColor: '#ECE4D8', color: '#511419' }}
+                >
+                  XÁC NHẬN THAM DỰ
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
     </>
