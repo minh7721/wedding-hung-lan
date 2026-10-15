@@ -4,11 +4,11 @@ import { useState } from 'react';
 
 const gallery = [
   '/images/anh_cuoi_hung_lan/optimized/SM_02608_1.webp',
-  '/images/anh_cuoi_hung_lan/optimized/IMG_9126.webp',
-  '/images/anh_cuoi_hung_lan/optimized/SM_02854_1.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02723.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02631_1.webp',
   '/images/anh_cuoi_hung_lan/optimized/SM_02642_1.webp',
-  '/images/anh_cuoi_hung_lan/optimized/SM_03507_1.webp',
-  '/images/anh_cuoi_hung_lan/optimized/Untitled-1.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02840.webp',
+  '/images/anh_cuoi_hung_lan/optimized/SM_02795_1.webp',
 ];
 
 export function GallerySection() {
