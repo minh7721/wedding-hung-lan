@@ -31,12 +31,12 @@ export const FEATURED_COLLAGE_ITEMS: {
   },
   middle: {
     id: 'middle',
-    src: '/images/anh_cuoi_hung_lan/optimized/SM_02631_1.webp',
-    alt: 'Minh Hùng & Hương Lan - Nụ hôn vầng trán dịu dàng',
-    galleryIndex: 6,
-    caption: 'Nụ hôn vầng trán',
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02730_1.webp',
+    alt: 'Minh Hùng & Hương Lan - Ngọt ngào dưới tà voan cưới',
+    galleryIndex: 19,
+    caption: 'Dưới tà voan cưới',
     tag: 'Dịu dàng',
-    objectPosition: 'center 20%',
+    objectPosition: 'center 25%',
   },
   heroTall: {
     id: 'hero-tall',

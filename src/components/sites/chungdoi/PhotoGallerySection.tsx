@@ -178,6 +178,14 @@ export const photos: GalleryPhoto[] = [
     caption: 'Mở rộng vòng tay đón chào tương lai rạng ngời',
     objectPosition: 'center 20%',
   },
+  {
+    id: 20,
+    src: '/images/anh_cuoi_hung_lan/optimized/SM_02730_1.webp',
+    alt: 'Ảnh cưới Minh Hùng & Hương Lan - Ngọt ngào dưới tà voan cưới',
+    title: 'Dưới Tà Voan Cưới',
+    caption: 'Hạnh phúc đong đầy trong vòng tay yêu thương',
+    objectPosition: 'center 25%',
+  },
 ];
 
 const AUTOPLAY_DURATION = 2000; // ms per slide
@@ -587,7 +595,7 @@ export function PhotoGallerySection() {
               className="text-xs sm:text-sm italic tracking-wide"
               style={{ color: '#511419', fontFamily: 'Times New Roman, serif' }}
             >
-              "Từng khoảnh khắc trôi qua, tình yêu ta trao nhau càng thêm sâu đậm."
+              &ldquo;Từng khoảnh khắc trôi qua, tình yêu ta trao nhau càng thêm sâu đậm.&rdquo;
             </p>
           </div>
         </div>
