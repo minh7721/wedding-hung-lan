@@ -72,7 +72,7 @@ export function ReceptionDetailsCard() {
             {/* Main time and day */}
             <div className="my-2">
               <p className="text-xs md:text-sm uppercase tracking-wider opacity-75">
-                17:30 THỨ BẢY
+                16:30 THỨ BẢY
               </p>
             </div>
 
