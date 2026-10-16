@@ -18,9 +18,46 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const getSiteUrl = () => {
+  const envUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'https://wedding-hung-lan.aish.onl');
+  return envUrl.startsWith('http') ? envUrl : `https://${envUrl}`;
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: "Thiệp mời đám cưới Hùng - Lan",
-  description: "Thiệp mời đám cưới Hùng - Lan",
+  description: "Trân trọng kính mời quý khách đến dự lễ cưới của Minh Hùng & Hương Lan",
+  openGraph: {
+    title: "Thiệp mời đám cưới Hùng - Lan",
+    description: "Trân trọng kính mời quý khách đến dự lễ cưới của Minh Hùng & Hương Lan",
+    url: "/",
+    siteName: "Thiệp cưới Hùng - Lan",
+    locale: "vi_VN",
+    type: "website",
+    images: [
+      {
+        url: "/images/anh_cuoi_hung_lan/SM_02631_1.jpeg",
+        width: 1920,
+        height: 2879,
+        alt: "Thiệp mời đám cưới Hùng - Lan",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thiệp mời đám cưới Hùng - Lan",
+    description: "Trân trọng kính mời quý khách đến dự lễ cưới của Minh Hùng & Hương Lan",
+    images: ["/images/anh_cuoi_hung_lan/SM_02631_1.jpeg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
