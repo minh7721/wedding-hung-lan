@@ -132,34 +132,35 @@ export function ReceptionDetailsCard() {
                   </div>
                 ))}
 
-                {/* Week 1 - October 2026 starts on Thursday */}
+                {/* Week 1 - October 2026 starts on Thursday (T5) */}
+                <div />
                 <div />
                 <div />
                 <div className="py-1 opacity-30">1</div>
                 <div className="py-1 opacity-30">2</div>
                 <div className="py-1 opacity-30">3</div>
                 <div className="py-1 opacity-30">4</div>
-                <div className="py-1 opacity-30">5</div>
 
                 {/* Week 2 */}
+                <div className="py-1 opacity-30">5</div>
                 <div className="py-1 opacity-30">6</div>
                 <div className="py-1 opacity-30">7</div>
                 <div className="py-1 opacity-30">8</div>
                 <div className="py-1 opacity-30">9</div>
                 <div className="py-1 opacity-30">10</div>
                 <div className="py-1 opacity-30">11</div>
-                <div className="py-1 opacity-30">12</div>
 
                 {/* Week 3 */}
+                <div className="py-1 opacity-30">12</div>
                 <div className="py-1 opacity-30">13</div>
                 <div className="py-1 opacity-30">14</div>
                 <div className="py-1 opacity-30">15</div>
                 <div className="py-1 opacity-30">16</div>
                 <div className="py-1 opacity-30">17</div>
                 <div className="py-1 opacity-30">18</div>
-                <div className="py-1 opacity-30">19</div>
 
-                {/* Week 4 - Highlight Day 24 */}
+                {/* Week 4 - Highlight Day 24 (Saturday / T7) */}
+                <div className="py-1 opacity-30">19</div>
                 <div className="py-1 opacity-30">20</div>
                 <div className="py-1 opacity-30">21</div>
                 <div className="py-1 opacity-30">22</div>
@@ -173,15 +174,14 @@ export function ReceptionDetailsCard() {
                   </div>
                 </div>
                 <div className="py-1 opacity-30">25</div>
-                <div className="py-1 opacity-30">26</div>
 
                 {/* Week 5 */}
+                <div className="py-1 opacity-30">26</div>
                 <div className="py-1 opacity-30">27</div>
                 <div className="py-1 opacity-30">28</div>
                 <div className="py-1 opacity-30">29</div>
                 <div className="py-1 opacity-30">30</div>
                 <div className="py-1 opacity-30">31</div>
-                <div />
                 <div />
               </div>
             </div>
