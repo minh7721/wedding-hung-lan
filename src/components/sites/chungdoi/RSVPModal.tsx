@@ -265,13 +265,13 @@ export function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
               className="block text-sm font-medium mb-2"
               style={{ color: '#3D2820' }}
             >
-              Lời nhân cho cô dâu chú rể
+              Lời nhắn cho cô dâu chú rể
             </label>
             <textarea
               id="rsvp-message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Để lại lời nhân (không bắt buộc)"
+              placeholder="Để lại lời nhắn (không bắt buộc)"
               rows={3}
               className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 transition-all text-sm resize-none"
               style={{
