@@ -1,8 +1,11 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Hoàng Long & Bảo Ngọc - 3 tháng 1, 2026',
+  title: 'Minh Hùng & Hương Lan - 24 tháng 10, 2026',
   description: 'Mẫu Thiệp Minimalism Đỏ Đậm - Thiệp Cưới Tối Giản Sang Trọng',
+};
+
+export const viewport: Viewport = {
   themeColor: '#fb3570',
 };
 
