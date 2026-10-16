@@ -10,7 +10,7 @@ export function ReceptionDetailsCard() {
     'Tiệc Cưới: Minh Hùng & Hương Lan'
   )}&dates=20261024T103000Z/20261024T143000Z&details=${encodeURIComponent(
     'Trân trọng kính mời bạn đến chung vui cùng chúng tôi trong ngày vui trọng đại!'
-  )}&location=${encodeURIComponent('103 Đ. Tây Đằng, Tây Đằng, Quảng Oai, Hà Nội, Việt Nam')}`;
+  )}&location=${encodeURIComponent('Vật lại, Ba Vì, Hà Nội')}`;
 
   return (
     <>

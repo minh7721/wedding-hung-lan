@@ -3,8 +3,8 @@
 import { MapPin, Navigation } from 'lucide-react';
 
 export function VenueLocationSection() {
-  const address = '103 Đ. Tây Đằng, Tây Đằng, Quảng Oai, Hà Nội, Việt Nam';
-  const googleMapsUrl = 'https://maps.app.goo.gl/VdZnEotPDkTkXSWU9?g_st=ic';
+  const address = 'Vật lại, Ba Vì, Hà Nội';
+  const googleMapsUrl = 'https://www.google.com/maps?q=21%C2%B013%2732.3%22N+105%C2%B025%2743.5%22E';
 
   const handleGetDirections = () => {
     window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
@@ -47,7 +47,7 @@ export function VenueLocationSection() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.8887937140994!2d105.4205984!3d21.1965762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134f4daefbd94a1%3A0x9256dd7223fc85a3!2zMTAzIMSQLiBUw6J5IMSQ4bqxbmcsIFTDonkgxJDhurFuZywgUXXhuqNuZyBPYWksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1792047835434!5m2!1svi!2s"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3719.156307328785!2d105.42616217526205!3d21.22564948047344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDEzJzMyLjMiTiAxMDXCsDI1JzQzLjUiRQ!5e0!3m2!1svi!2s!4v1792122526777!5m2!1svi!2s"
             />
           </div>
 
